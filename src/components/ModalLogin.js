@@ -1,71 +1,95 @@
 import React, { Component } from "react";
 import {
   Button,
+  Header,
+  Image,
   Modal,
-  ModalHeader,
-  ModalFooter,
-  NavLink,
-  Form,
-  FormGroup,
-  Input
-} from "reactstrap";
+  Checkbox,
+  Form
+} from "semantic-ui-react";
+import PropTypes from "prop-types";
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
+import { connect } from "react-redux";
+import { createUser } from "../actions/SignUp";
 
 class ModalLogin extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      modal: false
-    };
+  state = { open: false, email: "", password: "" };
 
-    this.toggle = this.toggle.bind(this);
-  }
+  show = dimmer => () => this.setState({ dimmer, open: true });
+  close = () => this.setState({ open: false });
 
-  toggle() {
+  handleClick = () => this.setState({ active: !this.state.active });
+
+  handleOnChange = event => {
     this.setState({
-      modal: !this.state.modal
+      [event.target.name]: event.target.value
     });
-  }
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    fetch("http://localhost:3002/api/v1/users")
+      .then(response => response.json())
+      .then(allUsers => {
+        const user = allUsers.find(user => {
+          return (
+            user.email === this.state.email &&
+            user.password === this.state.password
+          );
+        });
+        this.props.createUser(user);
+      })
+      .then(() => this.props.history.push("/mainpage"));
+  };
 
   render() {
+    const { classes } = this.props;
+
+    const { open, dimmer } = this.state;
+
     return (
       <div>
-        <Button color="danger" onClick={this.toggle}>
-          Login
-        </Button>
+        <Button onClick={this.show(true)}>Login</Button>
         <Modal
-          isOpen={this.state.modal}
-          fade={false}
-          toggle={this.toggle}
-          className={this.props.className}
+          dimmer={dimmer}
+          open={open}
+          onClose={this.close}
+          onSubmit={this.handleSubmit}
         >
-          <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
-          <Form>
-            <FormGroup>
-              <Input
-                type="email"
-                name="email"
-                id="exampleEmail"
-                placeholder="Email"
-              />
-            </FormGroup>
-            <FormGroup>
-              <Input
-                type="password"
-                name="password"
-                id="examplePassword"
-                placeholder="password"
-              />
-            </FormGroup>
-          </Form>
-          <ModalFooter>
-            <NavLink href="/mainpage" active>
-              Login
-            </NavLink>
-          </ModalFooter>
+          <Image
+            wrapped
+            size="medium"
+            src="https://react.semantic-ui.com/images/avatar/large/rachel.png"
+          />
+          <Modal.Header>Parkit.</Modal.Header>
+          <Modal.Content>
+            <Modal.Description>
+              <Form>
+                <Form.Field>
+                  <input
+                    onChange={this.handleOnChange}
+                    placeholder="Username"
+                  />
+                </Form.Field>
+                <Form.Field>
+                  <input
+                    onChange={this.handleOnChange}
+                    placeholder="Password"
+                  />
+                </Form.Field>
+
+                <NavLink to="/mainpage" type="submit">
+                  <Button> Submit </Button>
+                </NavLink>
+              </Form>
+            </Modal.Description>
+          </Modal.Content>
         </Modal>
       </div>
     );
   }
 }
-
-export default ModalLogin;
+export default connect(
+  null,
+  { createUser }
+)(ModalLogin);

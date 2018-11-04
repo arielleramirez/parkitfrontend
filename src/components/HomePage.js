@@ -7,13 +7,10 @@ import MainPage from "./MainPage";
 class HomePage extends Component {
   render() {
     return (
-      <Router>
-        <div className="App">
-          <ModalLogin />
-          <ModalSignUp />
-          <Route exact path="/mainpage" component={MainPage} />
-        </div>
-      </Router>
+      <div>
+        <ModalSignUp />
+        <ModalLogin />
+      </div>
     );
   }
 }

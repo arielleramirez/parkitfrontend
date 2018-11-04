@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 
 const FilterByCity = props => {
+  console.log(props);
   const handleChange = event => {
     props.handleCityChange(event.target.value);
-    console.log(event.target);
   };
 
   return (
     <div>
+      <h1>Parkit.</h1>
       <select onChange={handleChange}>
         <option value="AL">Alabama</option>
         <option value="AK">Alaska</option>

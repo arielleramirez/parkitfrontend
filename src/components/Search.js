@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Form } from "semantic-ui-react";
 
-class SearchBar extends Component {
+class Search extends Component {
   handleChange = event => {
     this.props.handleChange(event.target.value);
   };
@@ -11,9 +11,10 @@ class SearchBar extends Component {
   };
 
   render() {
+    // console.log(event)
     return (
       <div>
-        <h1 className="banner">Parkit</h1>
+        <h1 className="banner">Parkit.</h1>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group className="search-sides">
             <input
@@ -29,4 +30,4 @@ class SearchBar extends Component {
   }
 }
 
-export default SearchBar;
+export default Search;

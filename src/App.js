@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import "./App.css";
-import HomePage from "./components/HomePage";
+import HomePage from "./containers/HomePage";
+import SignUp from "./components/SignUp";
+import Login from "./components/Login";
 
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className="App">
         <HomePage />
       </div>
     );

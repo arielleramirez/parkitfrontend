@@ -46,25 +46,50 @@ class ModalLogin extends Component {
     const { classes } = this.props;
 
     const { open, dimmer } = this.state;
+    const { active } = this.state;
 
     return (
       <div>
-        <Button onClick={this.show(true)}>Login</Button>
+        <Button
+          inverted
+          color="white"
+          className="logInButton"
+          onClick={this.show(true)}
+          style={{
+            marginLeft: -50,
+            textDecoration: "none",
+            paddingLeft: 40,
+            paddingRight: 40,
+            paddingTop: 15,
+            paddingBottom: 15
+          }}
+        >
+          Login
+        </Button>
         <Modal
+          size="tiny"
           dimmer={dimmer}
           open={open}
           onClose={this.close}
           onSubmit={this.handleSubmit}
         >
           <Image
+            style={{ marginLeft: 120, marginTop: 20 }}
             wrapped
             size="medium"
             src="https://react.semantic-ui.com/images/avatar/large/rachel.png"
           />
-          <Modal.Header>Parkit.</Modal.Header>
+          <Modal.Header>
+            <div style={{ marginLeft: 200, marginTop: 20, fontSize: 35 }}>
+              SignUp.
+            </div>
+            <div style={{ marginLeft: 205, marginTop: 20, fontSize: 12 }}>
+              A new way to park
+            </div>
+          </Modal.Header>
           <Modal.Content>
             <Modal.Description>
-              <Form>
+              <Form onSubmit={this.handleSubmit}>
                 <Form.Field>
                   <input
                     onChange={this.handleOnChange}
@@ -78,9 +103,22 @@ class ModalLogin extends Component {
                   />
                 </Form.Field>
 
-                <NavLink to="/mainpage" type="submit">
-                  <Button> Submit </Button>
-                </NavLink>
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  className="submit"
+                  active={active}
+                  style={{
+                    color: "white",
+                    paddingLeft: 100,
+                    paddingRight: 100,
+                    backgroundColor: active ? "#e55b00" : "#16203d",
+                    marginLeft: 130
+                  }}
+                >
+                  Log In
+                </Button>
               </Form>
             </Modal.Description>
           </Modal.Content>

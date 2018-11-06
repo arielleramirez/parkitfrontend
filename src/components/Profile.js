@@ -1,114 +1,104 @@
 import React, { Component } from "react";
-import { Grid } from "semantic-ui-react";
+import { Grid, Button } from "semantic-ui-react";
 import NavBar from "./NavBar";
 import { connect } from "react-redux";
 import { createUser } from "../actions/SignUp";
+import FormComponent from "./FormComponent";
+import ReservationsList from "./ReservationsList";
 
 class Profile extends Component {
   state = {
     showDetail: false,
-    targetRecipe: {},
+    targetReservation: {},
     searchBar: "",
     searchResult: [],
-    userRecipes: [],
-    userCollections: [],
+    userReservations: [],
+    userHistory: [],
     showForm: true
   };
 
-  componentDidMount() {
-    fetch(`http://localhost:3001/users/${this.props.currentUser.id}/recipes`)
+  handleReservation = event => {
+    fetch("http://localhost:3001/api/v1/reservations")
       .then(r => r.json())
-      .then(userRecipes => this.setState({ userRecipes }));
-
-    fetch(
-      `http://localhost:3001/users/${this.props.currentUser.id}/collections`
-    )
-      .then(r => r.json())
-      .then(userCollections => this.setState({ userCollections }));
-  }
-
-  handleFormSubmit = (e, recipeInfo) => {
-    console.log(e);
-    console.log(recipeInfo);
-    fetch(`http://localhost:3001/users/${this.props.currentUser.id}/recipes`, {
-      method: "POST",
-      headers: {
-        Accept: "Application/json",
-        "Content-Type": "Application/json"
-      },
-      body: JSON.stringify({
-        user_id: 2,
-        name: recipeInfo.name,
-        image: recipeInfo.image,
-        calories: Number(recipeInfo.calories),
-        cooking_time: Number(recipeInfo.cooking_time),
-        ingredients: [
-          recipeInfo.ingredient1,
-          recipeInfo.ingredient2,
-          recipeInfo.ingredient3
-        ].filter(ingredient => ingredient !== "")
-      })
-    })
-      .then(res => res.json())
-      .then(recipe =>
-        this.setState(prev => ({ userRecipes: [...prev.userRecipes, recipe] }))
-      )
-      .then(console.log);
+      .then(resData => {
+        this.setState({
+          userReservations: resData
+        });
+      });
   };
 
-  handleShowDetail = recipe => {
+  // handleFormSubmit = (e, parkingInfo) => {
+  //   console.log(e);
+  //   console.log(parkingInfo);
+  //   fetch("", {
+  //     method: "POST",
+  //     headers: {
+  //       Accept: "Application/json",
+  //       "Content-Type": "Application/json"
+  //     },
+  //     body: JSON.stringify({
+  //       user_id: 2,
+  //       name: parkingInfo.location_name,
+  //       address: parkingInfo.address
+  //     })
+  //   })
+  //     .then(res => res.json())
+  //     .then(reservation =>
+  //       this.setState(prev => ({
+  //         userReservations: [...prev.userReservations, reservation]
+  //       }))
+  //     )
+  //     .then(console.log);
+  // };
+
+  handleShowDetail = reservation => {
     this.setState({
       showDetail: true,
-      targetRecipe: recipe,
+      targetReservation: reservation,
       showForm: false
     });
   };
 
-  handleFavorite = recipe => {
+  handleFavorite = reservation => {
     this.setState(prev => ({
-      userCollections: [...prev.userCollections, recipe]
+      userHistory: [...prev.userHistory, reservation]
     }));
   };
 
-  handleDelete = recipe => {
-    console.log(recipe);
-    let position;
-    fetch(
-      `http://localhost:3001/users/${this.props.currentUser.id}/recipes/${
-        recipe.id
-      }`,
-      {
-        method: "DELETE",
-        headers: {
-          "Access-Control-Allow-Origin": "http://localhost:3002"
-        }
-      }
-    )
-      .then(response => response.json())
-      .then(console.log);
-
-    if (recipe.user_id === this.props.currentUser.id) {
-      position = this.state.userRecipes.indexOf(recipe);
-      this.setState({
-        userRecipes: [
-          ...this.state.userRecipes.slice(0, position),
-          ...this.state.userRecipes.slice(position + 1)
-        ]
-      });
-    } else {
-      position = this.state.userCollections.indexOf(recipe);
-      // debugger
-      console.log([...this.state.userCollections.slice(position + 1)]);
-      this.setState({
-        userCollections: [
-          ...this.state.userCollections.slice(0, position),
-          ...this.state.userCollections.slice(position + 1)
-        ]
-      });
-    }
-    // .then(collections => collections.find(collection => collection))
-    // console.log(recipe);
-  };
+  // handleDelete = reservation => {
+  //   console.log(reservation);
+  //   let position;
+  //   fetch("", {
+  //     method: "DELETE",
+  //     headers: {
+  //       "Access-Control-Allow-Origin": "http://localhost:3002"
+  //     }
+  //   })
+  //     .then(response => response.json())
+  //     .then(console.log);
+  //
+  //   if (reservation.user_id === this.props.currentUser.id) {
+  //     position = this.state.userReservations.indexOf(reservation);
+  //     this.setState({
+  //       userReservations: [
+  //         ...this.state.userReservations.slice(0, position),
+  //         ...this.state.userReservations.slice(position + 1)
+  //       ]
+  //     });
+  //   } else {
+  //     position = this.state.userHistory.indexOf(reservation);
+  //     // debugger
+  //     console.log([...this.state.userHistory.slice(position + 1)]);
+  //     this.setState({
+  //       userHistory: [
+  //         ...this.state.userHistory.slice(0, position),
+  //         ...this.state.userHistory.slice(position + 1)
+  //       ]
+  //     });
+  //   }
+  // .then(collections => collections.find(collection => collection))
+  // console.log(reservation);
+  // };
   handleShowForm = event => {
     this.setState({
       showForm: true,
@@ -140,6 +130,9 @@ class Profile extends Component {
           handleMainPage={this.handleMainPage}
         />
         <h1 className="banner">Parkit.</h1>
+        <Button onClick={this.handleReservation}>Your Reservations</Button>
+        <ReservationsList userReservations={this.state.userReservations} />
+        <FormComponent />
       </div>
     );
   }
@@ -149,19 +142,3 @@ export default connect(
   state => ({ currentUser: state.currentUser }),
   { createUser }
 )(Profile);
-
-// {this.state.showDetail ? (
-//   <Grid.Column>
-//   <RecipeDetail recipe={this.state.targetRecipe} />
-//   </Grid.Column>
-// ) : null}
-
-// <Grid.Column>
-// <RecipeList
-// handleShowDetail={this.handleShowDetail}
-// userRecipes={this.state.userRecipes}
-// userCollections={this.state.userCollections}
-// handleDelete={this.handleDelete}
-// handleShowForm={this.handleShowForm}
-// />
-// </Grid.Column>

@@ -28,7 +28,7 @@ class ModalLogin extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    fetch("http://localhost:3002/api/v1/users")
+    fetch("http://localhost:3001/api/v1/users")
       .then(response => response.json())
       .then(allUsers => {
         const user = allUsers.find(user => {
@@ -39,7 +39,7 @@ class ModalLogin extends Component {
         });
         this.props.createUser(user);
       })
-      .then(() => this.props.history.push("/mainpage"));
+      .then(() => this.setState({ redirect: true }));
   };
 
   render() {
@@ -52,7 +52,7 @@ class ModalLogin extends Component {
       <div>
         <Button
           inverted
-          color="white"
+          color="purple"
           className="logInButton"
           onClick={this.show(true)}
           style={{
@@ -81,7 +81,7 @@ class ModalLogin extends Component {
           />
           <Modal.Header>
             <div style={{ marginLeft: 200, marginTop: 20, fontSize: 35 }}>
-              SignUp.
+              Login
             </div>
             <div style={{ marginLeft: 205, marginTop: 20, fontSize: 12 }}>
               A new way to park
@@ -94,12 +94,16 @@ class ModalLogin extends Component {
                   <input
                     onChange={this.handleOnChange}
                     placeholder="Username"
+                    name="username"
+                    value={this.state.username}
                   />
                 </Form.Field>
                 <Form.Field>
                   <input
                     onChange={this.handleOnChange}
                     placeholder="Password"
+                    name="password"
+                    value={this.state.password}
                   />
                 </Form.Field>
 

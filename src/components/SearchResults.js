@@ -5,7 +5,6 @@ import { Card } from "semantic-ui-react";
 
 class SearchResult extends Component {
   render() {
-    console.log(this.props.searchResult);
     return (
       <Card.Group itemsPerRow={4} padded="horizontally" className="Grid1">
         {this.props.searchResult.map((recipe, idx) => {

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Search from "../components/Search";
+import SearchBar from "../components/SearchBar";
 import SearchResults from "../components/SearchResults";
 import { connect } from "react-redux";
 import NavBar from "../components/NavBar";
@@ -7,6 +7,9 @@ import { createUser } from "../actions/SignUp";
 import { Container } from "semantic-ui-react";
 import { Grid } from "semantic-ui-react";
 import MapComponent from "../components/MapComponent";
+
+const API =
+  "http://api.parkwhiz.com/parking/reservation/?key=0255bd8ed81adc912b5d2d720e8dd777e901d81d";
 
 class MainPage extends Component {
   state = {
@@ -61,9 +64,9 @@ class MainPage extends Component {
           handleMainPage={this.handleMainPage}
         />
         <div className="main-page-search">
-          <Search
-            handleChange={this.handleChange}
+          <SearchBar
             handleSubmit={this.handleSubmit}
+            handleChange={this.handleChange}
           />
           <MapComponent />
           <SearchResults
@@ -80,3 +83,8 @@ export default connect(
   state => ({ currentUser: state.currentUser }),
   { createUser }
 )(MainPage);
+
+// <Search
+//   handleChange={this.handleChange}
+//   handleSubmit={this.handleSubmit}
+// />

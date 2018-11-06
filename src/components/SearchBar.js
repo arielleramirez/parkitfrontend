@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Form } from "semantic-ui-react";
 
-class Search extends Component {
+class SearchBar extends Component {
   handleChange = event => {
     this.props.handleChange(event.target.value);
   };
@@ -30,4 +30,4 @@ class Search extends Component {
   }
 }
 
-export default Search;
+export default SearchBar;

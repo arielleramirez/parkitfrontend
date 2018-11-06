@@ -41,7 +41,7 @@ class FormComponent extends Component {
   };
 
   render() {
-    return <div>Profile Page</div>;
+    return <div />;
   }
 }
 

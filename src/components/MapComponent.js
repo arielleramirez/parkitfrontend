@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import iconUrl from "../img/u.png";
-import { GeoSearchControl, OpenStreetMapProvider } from "leaflet-geosearch";
+import usermarker from "../img/u.png";
+import parkingspacemarker from "../img/marker.png";
 import {
   LayersControl,
   BaseLayer,
@@ -9,11 +9,16 @@ import {
   Marker,
   Popup
 } from "react-leaflet";
-import { ReactLeafletSearch } from "react-leaflet-search";
 import L from "leaflet";
 
+let myIcon1 = L.icon({
+  iconUrl: usermarker,
+  iconAnchor: [12.5, 41],
+  popupAnchor: [7, -41]
+});
+
 let myIcon = L.icon({
-  iconUrl,
+  iconUrl: parkingspacemarker,
   iconAnchor: [12.5, 41],
   popupAnchor: [7, -41]
 });
@@ -71,7 +76,7 @@ class MapComponent extends Component {
     return this.state.coords.map(cord => {
       var newPosition = [cord.lat, cord.lng];
       return (
-        <Marker position={newPosition} icon={myIcon}>
+        <Marker position={newPosition} icon={myIcon1}>
           <Popup>
             <div className="pop">
               {cord.location_name}

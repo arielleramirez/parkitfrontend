@@ -26,18 +26,24 @@ class MainPage extends Component {
     });
   };
 
-  handleSubmit = event => {
-    event.preventDefault();
-    fetch(
-      `http://api.parkwhiz.com/parking/reservation/?key=0255bd8ed81adc912b5d2d720e8dd777e901d81d`
-    )
-      .then(response => response.json())
-      .then(spaceData => {
-        this.setState({
-          searchResult: spaceData
-        });
-      });
-  };
+  // handleSubmit = event => {
+  //   event.preventDefault();
+  //   fetch(
+  // `http://api.parkwhiz.com/parking/reservation/?key=0255bd8ed81adc912b5d2d720e8dd777e901d81d`
+  //   )
+  //     .then(response => response.json())
+  //     .then(spaceData => {
+  //       const space = spaceData.find(space => {
+  //         return (
+  //           space.location_name == this.state.location &&
+  //           space.password == this.state.password
+  //         );
+  //       });
+  //       if (user) {
+  //         this.setState({ redirect: true });
+  //       }
+  //     });
+  // };
 
   handleLogOut = event => {
     this.props.createUser(null);
@@ -62,15 +68,9 @@ class MainPage extends Component {
           handleMainPage={this.handleMainPage}
         />
         <div className="main-page-search">
-          <Filter />
           <SearchBar
             handleSubmit={this.handleSubmit}
             handleChange={this.handleChange}
-          />
-          <MapComponent searchResult={this.searchResult} />
-          <SearchResults
-            searchResult={this.state.searchResult}
-            handleFavorite={this.handleFavorite}
           />
         </div>
       </React.Fragment>

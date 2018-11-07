@@ -28,7 +28,6 @@ class Login extends Component {
   };
 
   handleSubmit = event => {
-    console.log(event);
     event.preventDefault();
 
     fetch("http://localhost:3001/api/v1/users")

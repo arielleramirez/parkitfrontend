@@ -3,11 +3,12 @@ import Result from "./Result";
 import { Container } from "semantic-ui-react";
 import { Card } from "semantic-ui-react";
 
-class SearchResult extends Component {
+class SearchResults extends Component {
   render() {
+    console.log(this.props);
     return (
       <Card.Group itemsPerRow={4} padded="horizontally" className="Grid1">
-        {this.props.searchResult.map((recipe, idx) => {
+        {this.props.locationResults.map((recipe, idx) => {
           return <Result key={idx} {...recipe} />;
         })}
       </Card.Group>
@@ -15,7 +16,7 @@ class SearchResult extends Component {
   }
 }
 
-export default SearchResult;
+export default SearchResults;
 
 // if (this.props.filter == space.state) {
 

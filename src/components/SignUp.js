@@ -42,8 +42,7 @@ class SignUp extends Component {
     fetch("http://localhost:3001/api/v1/users", {
       method: "POST",
       headers: {
-        Accept: "Application/json",
-        "content-type": "Application/json"
+        "Content-Type": "Application/json"
       },
       body: JSON.stringify({
         name: this.state.name,
@@ -53,8 +52,11 @@ class SignUp extends Component {
       })
     })
       .then(response => response.json())
-      .then(newUser => this.props.createUser(newUser))
-      .then(() => this.setState({ redirect: true }));
+
+      .then(data => {
+        console.log(data);
+        this.setState({ redirect: true });
+      });
   };
 
   render() {
@@ -70,7 +72,7 @@ class SignUp extends Component {
       <div>
         <Button
           inverted
-          color="purple"
+          color="white"
           className="logInButton"
           onClick={this.show(true)}
           style={{
@@ -89,7 +91,7 @@ class SignUp extends Component {
           dimmer={dimmer}
           open={open}
           onClose={this.close}
-          onSubmit={this.handleSubmit}
+          // onSubmit={this.handleSubmit}
         >
           <Image
             style={{ marginLeft: 120, marginTop: 20 }}
@@ -108,14 +110,6 @@ class SignUp extends Component {
           <Modal.Content>
             <Modal.Description>
               <Form onSubmit={this.handleSubmit}>
-                <Form.Field>
-                  <input
-                    value={this.state.name}
-                    onChange={this.handleOnChange}
-                    placeholder="Name"
-                    name="name"
-                  />
-                </Form.Field>
                 <Form.Field>
                   <input
                     value={this.state.username}
@@ -166,7 +160,4 @@ class SignUp extends Component {
     );
   }
 }
-export default connect(
-  null,
-  { createUser }
-)(SignUp);
+export default SignUp;

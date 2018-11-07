@@ -14,7 +14,6 @@ class SearchBar extends Component {
     // console.log(event)
     return (
       <div>
-        <h1 className="banner">Parkit.</h1>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group className="search-sides">
             <input

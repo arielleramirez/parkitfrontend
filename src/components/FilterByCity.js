@@ -8,7 +8,7 @@ const FilterByCity = props => {
 
   return (
     <div>
-      <h1>Parkit.</h1>
+      <h1 className="banner">Parkit.</h1>
       <select onChange={handleChange}>
         <option value="AL">Alabama</option>
         <option value="AK">Alaska</option>

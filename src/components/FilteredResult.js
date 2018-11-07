@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 const Result = props => {
   console.log(props);
   const handleRes = event => {
-    // props.handleReservation(props.id);
+    props.handleReservation(props.id);
   };
 
   return (

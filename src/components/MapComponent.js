@@ -11,13 +11,13 @@ import {
 } from "react-leaflet";
 import L from "leaflet";
 
-let myIcon1 = L.icon({
+let myIcon = L.icon({
   iconUrl: usermarker,
   iconAnchor: [12.5, 41],
   popupAnchor: [7, -41]
 });
 
-let myIcon = L.icon({
+let myIcon1 = L.icon({
   iconUrl: parkingspacemarker,
   iconAnchor: [12.5, 41],
   popupAnchor: [7, -41]
@@ -76,7 +76,7 @@ class MapComponent extends Component {
     return this.state.coords.map(cord => {
       var newPosition = [cord.lat, cord.lng];
       return (
-        <Marker position={newPosition} icon={myIcon1}>
+        <Marker position={newPosition} icon={myIcon}>
           <Popup>
             <div className="pop">
               {cord.location_name}
@@ -120,7 +120,7 @@ class MapComponent extends Component {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
           {this.state.haveUserLocation ? (
-            <Marker position={position} icon={myIcon}>
+            <Marker position={position} icon={myIcon1}>
               <Popup>Your current location</Popup>
             </Marker>
           ) : (

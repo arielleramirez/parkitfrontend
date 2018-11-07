@@ -7,9 +7,7 @@ import { createUser } from "../actions/SignUp";
 import { Container } from "semantic-ui-react";
 import { Grid } from "semantic-ui-react";
 import MapComponent from "../components/MapComponent";
-
-const API =
-  "http://api.parkwhiz.com/parking/reservation/?key=0255bd8ed81adc912b5d2d720e8dd777e901d81d";
+import Filter from "../components/Filter";
 
 class MainPage extends Component {
   state = {
@@ -64,11 +62,12 @@ class MainPage extends Component {
           handleMainPage={this.handleMainPage}
         />
         <div className="main-page-search">
+          <Filter />
           <SearchBar
             handleSubmit={this.handleSubmit}
             handleChange={this.handleChange}
           />
-          <MapComponent />
+          <MapComponent searchResult={this.searchResult} />
           <SearchResults
             searchResult={this.state.searchResult}
             handleFavorite={this.handleFavorite}

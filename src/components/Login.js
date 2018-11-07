@@ -10,10 +10,10 @@ import {
 import PropTypes from "prop-types";
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import { connect } from "react-redux";
-import { createUser } from "../actions/SignUp";
+import { Redirect } from "react-router";
 
-class ModalLogin extends Component {
-  state = { open: false, email: "", password: "" };
+class Login extends Component {
+  state = { open: false, redirect: false, username: "", password: "" };
 
   show = dimmer => () => this.setState({ dimmer, open: true });
   close = () => this.setState({ open: false });
@@ -21,25 +21,29 @@ class ModalLogin extends Component {
   handleClick = () => this.setState({ active: !this.state.active });
 
   handleOnChange = event => {
+    console.log(event.target.value);
     this.setState({
       [event.target.name]: event.target.value
     });
   };
 
   handleSubmit = event => {
+    console.log(event);
     event.preventDefault();
+
     fetch("http://localhost:3001/api/v1/users")
       .then(response => response.json())
       .then(allUsers => {
         const user = allUsers.find(user => {
           return (
-            user.email === this.state.email &&
-            user.password === this.state.password
+            user.username == this.state.username &&
+            user.password == this.state.password
           );
         });
-        this.props.createUser(user);
-      })
-      .then(() => this.setState({ redirect: true }));
+        if (user) {
+          this.setState({ redirect: true });
+        }
+      });
   };
 
   render() {
@@ -47,12 +51,16 @@ class ModalLogin extends Component {
 
     const { open, dimmer } = this.state;
     const { active } = this.state;
+    const { redirect } = this.state;
+    if (redirect) {
+      return <Redirect to="/mainpage" />;
+    }
 
     return (
       <div>
         <Button
           inverted
-          color="purple"
+          color="white"
           className="logInButton"
           onClick={this.show(true)}
           style={{
@@ -71,7 +79,7 @@ class ModalLogin extends Component {
           dimmer={dimmer}
           open={open}
           onClose={this.close}
-          onSubmit={this.handleSubmit}
+          // onSubmit={this.handleSubmit}
         >
           <Image
             style={{ marginLeft: 120, marginTop: 20 }}
@@ -131,7 +139,4 @@ class ModalLogin extends Component {
     );
   }
 }
-export default connect(
-  null,
-  { createUser }
-)(ModalLogin);
+export default Login;

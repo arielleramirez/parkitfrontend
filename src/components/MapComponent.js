@@ -33,63 +33,44 @@ class MapComponent extends Component {
     coords: []
   };
 
-  componentDidMount() {
-    fetch(
-      "http://api.parkwhiz.com/parking/reservation/?key=0255bd8ed81adc912b5d2d720e8dd777e901d81d"
-    )
-      .then(response => response.json())
-      .then(coords => {
-        this.setState({
-          coords: coords,
-          isLoaded: true
-        });
-      });
-    navigator.geolocation.getCurrentPosition(
-      position => {
-        this.setState({
-          location: {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-          },
-          haveUserLocation: true,
-          zoom: 16
-        });
-      },
-      () => {
-        fetch("https://ipapi.co/json")
-          .then(response => response.json())
-          .then(locationData => {
-            this.setState({
-              location: {
-                lat: locationData.latitude,
-                lng: locationData.longitude
-              },
-              haveUserLocation: true,
-              zoom: 16
-            });
-          });
-      }
-    );
-  }
-
-  renderEachCoordinatePosition = stateObj => {
-    return this.state.coords.map(cord => {
-      var newPosition = [cord.lat, cord.lng];
-      return (
-        <Marker position={newPosition} icon={myIcon}>
-          <Popup>
-            <div className="pop">
-              {cord.location_name}
-              <br />
-              {this.props.address}
-              <br />
-              {this.props.city}
-            </div>
-          </Popup>
-        </Marker>
-      );
-    });
-  };
+  // componentDidMount() {
+  //   fetch(
+  //     "http://api.parkwhiz.com/parking/reservation/?key=0255bd8ed81adc912b5d2d720e8dd777e901d81d"
+  //   )
+  //     .then(response => response.json())
+  //     .then(coords => {
+  //       this.setState({
+  //         coords: coords,
+  //         isLoaded: true
+  //       });
+  //     });
+  //   navigator.geolocation.getCurrentPosition(
+  //     position => {
+  //       this.setState({
+  //         location: {
+  //           lat: position.coords.latitude,
+  //           lng: position.coords.longitude
+  //         },
+  //         haveUserLocation: true,
+  //         zoom: 16
+  //       });
+  //     },
+  //     () => {
+  //       fetch("https://ipapi.co/json")
+  //         .then(response => response.json())
+  //         .then(locationData => {
+  //           this.setState({
+  //             location: {
+  //               lat: locationData.latitude,
+  //               lng: locationData.longitude
+  //             },
+  //             haveUserLocation: true,
+  //             zoom: 16
+  //           });
+  //         });
+  //     }
+  //   );
+  // }
 
   // renderLocationViaSearch = id => {
   //   let point = this.state.searchInput.filter(cord => {
@@ -126,7 +107,6 @@ class MapComponent extends Component {
           ) : (
             ""
           )}
-          {this.renderEachCoordinatePosition()}
         </Map>
       </div>
     );
@@ -134,3 +114,5 @@ class MapComponent extends Component {
 }
 
 export default MapComponent;
+
+// {this.renderEachCoordinatePosition()}

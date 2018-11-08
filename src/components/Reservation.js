@@ -3,8 +3,13 @@ import { Card, Button, Image } from "semantic-ui-react";
 
 const Reservations = props => {
   const onCancel = event => {
+    console.log(event.target);
+    fetch(`http://localhost:3001/api/v1/reservations/${props.id}`, {
+      method: "DELETE"
+    });
     props.handleCancel(props.id);
   };
+
   console.log(props);
   return (
     <Fragment>
@@ -23,6 +28,7 @@ const Reservations = props => {
         <Card.Content extra>
           <Button
             onClick={onCancel}
+            id={props.id}
             style={{ paddingLeft: 80, paddingRight: 80, marginLeft: 35 }}
           >
             Cancel Reservation

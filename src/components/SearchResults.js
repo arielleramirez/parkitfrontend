@@ -8,8 +8,20 @@ class SearchResults extends Component {
     console.log(this.props);
     return (
       <Card.Group itemsPerRow={4} padded="horizontally" className="Grid1">
-        {this.props.locationResults.map((recipe, idx) => {
-          return <Result key={idx} {...recipe} />;
+        {this.props.locationResults.map((parkingspace, idx) => {
+          return (
+            <Result
+              key={idx}
+              location_name={parkingspace.location_name}
+              address={parkingspace.address}
+              city={parkingspace.city}
+              state={parkingspace.state}
+              zip={parkingspace.zip}
+              lat={parkingspace.zip}
+              lng={parkingspace.lng}
+              locationResults={this.props.locationResults}
+            />
+          );
         })}
       </Card.Group>
     );

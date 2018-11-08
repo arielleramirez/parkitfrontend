@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import classnames from "classnames";
 import { Card, Image, Button } from "semantic-ui-react";
 import Profile from "./Profile";
+import MapComponent from "./MapComponent";
 
 class Result extends Component {
   state = {
@@ -18,8 +19,8 @@ class Result extends Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        user_id: 1, //fix user id to 1,recipes from api
-        parkingspace_id: 5,
+        user_id: this.props.user_id, //fix user id to 1,recipes from api
+        parkingspace_id: this.props.parkingspace_id,
         name: this.props.location_name,
         street: this.props.address,
         city: this.props.city,
@@ -30,24 +31,44 @@ class Result extends Component {
       .then(response => response.json())
       .then(data => {
         this.setState({
-          reserveSpot: data
+          reserveSpot: data,
+          isReserved: true
         });
       });
   };
+
+  // renderEachCoordinatePosition = stateObj => {
+  //   return this.state.coords.map(cord => {
+  //     var newPosition = [cord.lat, cord.lng];
+  //     return (
+  //       <Marker position={newPosition} icon={myIcon}>
+  //         <Popup>
+  //           <div className="pop">
+  //             {cord.location_name}
+  //             <br />
+  //             {this.props.address}
+  //             <br />
+  //             {this.props.city}
+  //           </div>
+  //         </Popup>
+  //       </Marker>
+  //     );
+  //   });
+  // };
+
   render() {
     console.log(this.props);
     const { classes } = this.props;
     return (
       <Fragment>
         <Card style={{ width: 300, margin: 25 }}>
-          <Image src="https://react.semantic-ui.com/images/avatar/large/matthew.png" />
+          <MapComponent locationResult={this.props.locationResults} />
           <Card.Content style={{ paddingLeft: 50 }}>
             <Card.Header>{this.props.location_name}</Card.Header>
-            <Card.Meta>
-              <span className="date">Vacant</span>
-            </Card.Meta>
             <Card.Description>
               {this.props.address}
+              <br />
+              {this.props.city}
               <br />
               {this.props.state}, {this.props.zip}
             </Card.Description>

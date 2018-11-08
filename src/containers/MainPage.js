@@ -26,24 +26,15 @@ class MainPage extends Component {
     });
   };
 
-  // handleSubmit = event => {
-  //   event.preventDefault();
+  // componentDidMount() {
   //   fetch(
-  // `http://api.parkwhiz.com/parking/reservation/?key=0255bd8ed81adc912b5d2d720e8dd777e901d81d`
+  //     `http://api.parkwhiz.com/parking/reservation/?key=0255bd8ed81adc912b5d2d720e8dd777e901d81d`
   //   )
   //     .then(response => response.json())
-  //     .then(spaceData => {
-  //       const space = spaceData.find(space => {
-  //         return (
-  //           space.location_name == this.state.location &&
-  //           space.password == this.state.password
-  //         );
-  //       });
-  //       if (user) {
-  //         this.setState({ redirect: true });
-  //       }
+  //     .then(data => {
+  //       console.log(data);
   //     });
-  // };
+  // }
 
   handleLogOut = event => {
     this.props.createUser(null);
@@ -83,8 +74,3 @@ export default connect(
   state => ({ currentUser: state.currentUser }),
   { createUser }
 )(MainPage);
-
-// <Search
-//   handleChange={this.handleChange}
-//   handleSubmit={this.handleSubmit}
-// />

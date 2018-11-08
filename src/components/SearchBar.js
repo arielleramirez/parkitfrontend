@@ -1,11 +1,30 @@
 import React, { Component, Fragment } from "react";
 import { Form, Card, Image } from "semantic-ui-react";
 import SearchResults from "./SearchResults";
+import usermarker from "../img/u.png";
+import parkingspacemarker from "../img/marker.png";
+import {
+  LayersControl,
+  BaseLayer,
+  Map,
+  TileLayer,
+  Marker,
+  Popup
+} from "react-leaflet";
+import L from "leaflet";
+
+let myIcon = L.icon({
+  iconUrl: usermarker,
+  iconAnchor: [12.5, 41],
+  popupAnchor: [7, -41]
+});
 
 class SearchBar extends Component {
   state = {
     location: "",
-    locationResult: []
+    locationResult: [],
+    lat: [],
+    lng: []
   };
   handleChange = event => {
     this.setState({
@@ -19,23 +38,22 @@ class SearchBar extends Component {
     )
       .then(response => response.json())
       .then(spaceData => {
-        const space = spaceData.filter(space => {
-          return space.location_name.includes(this.state.location);
+        const space = spaceData.filter(spaced => {
+          return spaced.location_name.includes(this.state.location);
         });
 
         if (space) {
-          // space.map(parking => {
-          console.log(spaceData);
           this.setState({
             locationResult: space
           });
-          // });
         }
       });
   };
 
   render() {
     console.log(this.state.locationResult);
+    console.log(this.state.lat);
+    console.log(this.state.lng);
     return (
       <div>
         <h1 className="banner">Parkit.</h1>

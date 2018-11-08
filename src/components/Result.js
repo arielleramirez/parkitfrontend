@@ -5,11 +5,30 @@ import classnames from "classnames";
 import { Card, Image, Button } from "semantic-ui-react";
 import Profile from "./Profile";
 import MapComponent from "./MapComponent";
+import usermarker from "../img/u.png";
+import parkingspacemarker from "../img/marker.png";
+import {
+  LayersControl,
+  BaseLayer,
+  Map,
+  TileLayer,
+  Marker,
+  Popup
+} from "react-leaflet";
+import L from "leaflet";
+
+let myIcon = L.icon({
+  iconUrl: usermarker,
+  iconAnchor: [12.5, 41],
+  popupAnchor: [7, -41]
+});
 
 class Result extends Component {
   state = {
     isReserved: false,
-    reserveSpot: []
+    reserveSpot: [],
+    lat: [],
+    lng: []
   };
 
   onReserve = event => {
@@ -37,32 +56,24 @@ class Result extends Component {
       });
   };
 
-  // renderEachCoordinatePosition = stateObj => {
-  //   return this.state.coords.map(cord => {
-  //     var newPosition = [cord.lat, cord.lng];
-  //     return (
-  //       <Marker position={newPosition} icon={myIcon}>
-  //         <Popup>
-  //           <div className="pop">
-  //             {cord.location_name}
-  //             <br />
-  //             {this.props.address}
-  //             <br />
-  //             {this.props.city}
-  //           </div>
-  //         </Popup>
-  //       </Marker>
-  //     );
-  //   });
-  // };
-
   render() {
     console.log(this.props);
+
     const { classes } = this.props;
     return (
       <Fragment>
         <Card style={{ width: 300, margin: 25 }}>
-          <MapComponent locationResult={this.props.locationResults} />
+          <div className="map">
+            <Map className="map" center={this.props.position} zoom={16}>
+              <TileLayer
+                attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              <Marker position={this.props.position} icon={myIcon}>
+                <Popup>Your current location</Popup>
+              </Marker>
+            </Map>
+          </div>
           <Card.Content style={{ paddingLeft: 50 }}>
             <Card.Header>{this.props.location_name}</Card.Header>
             <Card.Description>

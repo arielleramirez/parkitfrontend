@@ -17,9 +17,7 @@ class SearchResults extends Component {
               city={parkingspace.city}
               state={parkingspace.state}
               zip={parkingspace.zip}
-              lat={parkingspace.zip}
-              lng={parkingspace.lng}
-              locationResults={this.props.locationResults}
+              position={[parkingspace.lat, parkingspace.lng]}
             />
           );
         })}
@@ -29,14 +27,3 @@ class SearchResults extends Component {
 }
 
 export default SearchResults;
-
-// if (this.props.filter == space.state) {
-
-//
-// render() {
-//   console.log(this.props.searchResults);
-//   const results = this.props.searchResults.map((space, idx) => {
-//     return <Result key={idx} {...space} />;
-//   });
-//   return <Card.Group itemsPerRow={3}>{results}</Card.Group>;
-// }

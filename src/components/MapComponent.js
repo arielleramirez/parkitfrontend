@@ -90,8 +90,10 @@ class MapComponent extends Component {
   //     </Marker>
   //   );
   // };
+
   render() {
-    const position = [this.state.location.lat, this.state.location.lng];
+    const position = [this.props.lat, this.props.lng];
+    console.log(this.props);
 
     return (
       <div className="map">

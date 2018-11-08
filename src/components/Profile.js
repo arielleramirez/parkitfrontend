@@ -27,6 +27,15 @@ class Profile extends Component {
       });
   };
 
+  handleCancel = id => {
+    let reservationsToKeep = this.state.userReservations.filter(reservation => {
+      return reservation.id != id;
+    });
+    this.setState({
+      userReservations: reservationsToKeep
+    });
+  };
+
   // handleFormSubmit = (e, parkingInfo) => {
   //   console.log(e);
   //   console.log(parkingInfo);
@@ -131,7 +140,10 @@ class Profile extends Component {
         />
         <h1 className="banner">Parkit.</h1>
         <Button onClick={this.handleReservation}>Your Reservations</Button>
-        <ReservationsList userReservations={this.state.userReservations} />
+        <ReservationsList
+          userReservations={this.state.userReservations}
+          handleCancel={this.handleCancel}
+        />
         <FormComponent />
       </div>
     );

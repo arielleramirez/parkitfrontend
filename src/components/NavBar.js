@@ -31,7 +31,7 @@ class NavBar extends Component {
           avatar
           src="https://react.semantic-ui.com/images/avatar/large/rachel.png"
         />
-        {this.props.currentUser.username}
+        {this.props.username}
       </span>
     );
     const options = [

@@ -8,7 +8,13 @@ class ReservationsList extends Component {
     return (
       <Card.Group itemsPerRow={4} padded="horizontally" className="Grid1">
         {this.props.userReservations.map((recipe, idx) => {
-          return <Reservation key={idx} {...recipe} />;
+          return (
+            <Reservation
+              key={idx}
+              {...recipe}
+              handleCancel={this.props.handleCancel}
+            />
+          );
         })}
       </Card.Group>
     );

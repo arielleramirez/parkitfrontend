@@ -44,7 +44,9 @@ class Result extends Component {
         street: this.props.address,
         city: this.props.city,
         state: this.props.state,
-        zip: this.props.zip
+        zip: this.props.zip,
+        lng: this.props.lng,
+        lat: this.props.lat
       })
     })
       .then(response => response.json())

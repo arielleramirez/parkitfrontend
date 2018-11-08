@@ -3,7 +3,12 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  NavLink,
+  Switch
+} from "react-router-dom";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import HomePage from "./containers/HomePage";
@@ -18,11 +23,13 @@ const Root = ({ store }) => (
   <Provider store={store}>
     <Router>
       <React.Fragment>
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/signup" component={SignUp} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/mainpage" component={MainPage} />
-        <Route exact path="/profile" component={Profile} />
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/mainpage" component={MainPage} />
+          <Route exact path="/profile" component={Profile} />
+        </Switch>
       </React.Fragment>
     </Router>
   </Provider>

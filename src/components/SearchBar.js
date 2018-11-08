@@ -12,6 +12,7 @@ import {
   Popup
 } from "react-leaflet";
 import L from "leaflet";
+import ReservationsList from "./ReservationsList";
 
 let myIcon = L.icon({
   iconUrl: usermarker,

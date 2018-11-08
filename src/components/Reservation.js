@@ -1,5 +1,22 @@
 import React, { Component, Fragment } from "react";
 import { Card, Button, Image } from "semantic-ui-react";
+import usermarker from "../img/u.png";
+import parkingspacemarker from "../img/marker.png";
+import {
+  LayersControl,
+  BaseLayer,
+  Map,
+  TileLayer,
+  Marker,
+  Popup
+} from "react-leaflet";
+import L from "leaflet";
+
+let myIcon = L.icon({
+  iconUrl: usermarker,
+  iconAnchor: [12.5, 41],
+  popupAnchor: [7, -41]
+});
 
 const Reservations = props => {
   const onCancel = event => {
@@ -14,7 +31,17 @@ const Reservations = props => {
   return (
     <Fragment>
       <Card style={{ width: 300, margin: 25 }}>
-        <Image src="https://react.semantic-ui.com/images/avatar/large/matthew.png" />
+        <div className="map">
+          <Map className="map" center={props.position} zoom={16}>
+            <TileLayer
+              attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <Marker position={props.position} icon={myIcon}>
+              <Popup>Your current location</Popup>
+            </Marker>
+          </Map>
+        </div>
         <Card.Content style={{ paddingLeft: 50 }}>
           <Card.Header>{props.name}</Card.Header>
           <Card.Description>

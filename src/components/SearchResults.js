@@ -17,6 +17,8 @@ class SearchResults extends Component {
               city={parkingspace.city}
               state={parkingspace.state}
               zip={parkingspace.zip}
+              lat={parkingspace.lat}
+              lng={parkingspace.lng}
               position={[parkingspace.lat, parkingspace.lng]}
             />
           );

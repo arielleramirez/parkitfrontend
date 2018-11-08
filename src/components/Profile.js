@@ -121,7 +121,7 @@ class Profile extends Component {
   };
 
   render() {
-    console.log(this.props.currentUser);
+    console.log(this.state.userReservations);
     return (
       <div>
         <NavBar

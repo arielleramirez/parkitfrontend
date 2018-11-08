@@ -11,7 +11,9 @@ class Reservations extends Component {
           <Card.Content style={{ paddingLeft: 50 }}>
             <Card.Header>{this.props.name}</Card.Header>
             <Card.Description>
-              {this.props.address}
+              {this.props.street}
+              <br />
+              {this.props.city}
               <br />
               {this.props.state}, {this.props.zip}
             </Card.Description>

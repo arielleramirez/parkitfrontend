@@ -20,7 +20,11 @@ class Result extends Component {
       body: JSON.stringify({
         user_id: 1, //fix user id to 1,recipes from api
         parkingspace_id: 5,
-        name: "this"
+        name: this.props.location_name,
+        street: this.props.address,
+        city: this.props.city,
+        state: this.props.state,
+        zip: this.props.zip
       })
     })
       .then(response => response.json())
@@ -31,6 +35,7 @@ class Result extends Component {
       });
   };
   render() {
+    console.log(this.props);
     const { classes } = this.props;
     return (
       <Fragment>

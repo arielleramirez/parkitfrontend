@@ -66,10 +66,7 @@ class Filter extends Component {
           handleMainPage={this.handleMainPage}
           handleFilterPage={this.handleFilterPage}
         />
-        <FilterByCity
-          searchResults={this.state.searchResults}
-          handleCityChange={this.handleCityChange}
-        />
+        <FilterByCity handleCityChange={this.handleCityChange} />
         <FilterResults
           searchResults={this.state.FilterResults}
           filter={this.state.stateFilter}

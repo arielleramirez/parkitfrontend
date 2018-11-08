@@ -18,6 +18,7 @@ import PropTypes from "prop-types";
 import { createStore } from "redux";
 import todoApp from "./reducers/todoApp";
 import Profile from "./components/Profile";
+import Filter from "./components/Filter";
 
 const Root = ({ store }) => (
   <Provider store={store}>
@@ -29,6 +30,7 @@ const Root = ({ store }) => (
           <Route exact path="/login" component={Login} />
           <Route exact path="/mainpage" component={MainPage} />
           <Route exact path="/profile" component={Profile} />
+          <Route exact path="/filter" component={Filter} />
         </Switch>
       </React.Fragment>
     </Router>

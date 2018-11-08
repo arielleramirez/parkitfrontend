@@ -37,6 +37,7 @@ class NavBar extends Component {
     const options = [
       { key: "user", text: "Profile", icon: "user" },
       { key: "mainpage", text: "Main Page", icon: "home" },
+      { key: "filter", text: "Filter By State", icon: "home" },
       { key: "sign-out", text: "Sign Out", icon: "sign out" }
     ];
 

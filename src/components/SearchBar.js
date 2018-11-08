@@ -13,6 +13,7 @@ import {
 } from "react-leaflet";
 import L from "leaflet";
 import ReservationsList from "./ReservationsList";
+import Filter from "./Filter";
 
 let myIcon = L.icon({
   iconUrl: usermarker,

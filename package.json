@@ -23,9 +23,11 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
     "react-select": "^2.1.1",
+    "react-slide-menu": "^0.5.1",
     "reactstrap": "^6.5.0",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
+    "rmdi": "^1.0.1",
     "semantic-ui": "^2.4.2",
     "semantic-ui-react": "^0.83.0"
   },

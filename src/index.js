@@ -19,6 +19,7 @@ import { createStore } from "redux";
 import todoApp from "./reducers/todoApp";
 import Profile from "./components/Profile";
 import Filter from "./components/Filter";
+import MapComponent from "./components/MapComponent";
 
 const Root = ({ store }) => (
   <Provider store={store}>
@@ -31,6 +32,7 @@ const Root = ({ store }) => (
           <Route exact path="/mainpage" component={MainPage} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/filter" component={Filter} />
+          <Route exact path="/search" component={MapComponent} />
         </Switch>
       </React.Fragment>
     </Router>

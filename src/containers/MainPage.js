@@ -26,15 +26,13 @@ class MainPage extends Component {
     });
   };
 
-  // componentDidMount() {
-  //   fetch(
-  //     `http://api.parkwhiz.com/parking/reservation/?key=0255bd8ed81adc912b5d2d720e8dd777e901d81d`
-  //   )
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       console.log(data);
-  //     });
-  // }
+  componentDidMount() {
+    fetch(`https://waze.com/ul?q=66%20Acacia%20Avenue`)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+      });
+  }
 
   handleLogOut = event => {
     this.props.createUser(null);

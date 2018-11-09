@@ -29,6 +29,12 @@ let myIcon1 = L.icon({
   popupAnchor: [7, -41]
 });
 
+let myIcon = L.icon({
+  iconUrl: parkingspacemarker,
+  iconAnchor: [12.5, 41],
+  popupAnchor: [7, -41]
+});
+
 const suggestions = [
   {
     label: "777 Brockton Avenue, Abington MA 2351",
@@ -105,6 +111,11 @@ const suggestions = [
     lat: "42.137170",
     lng: "-70.841830"
   },
+  {
+    label: "79 Willow Ave, Sommerville MA, 02144",
+    lat: "42.393690",
+    lng: "-71.116850"
+  },
   { label: "280 Washington Street, Hudson MA 1749" },
   { label: "20 Soojian Dr, Leicester MA 1524" },
   { label: "11 Jungle Road, Leominster MA 1453" },
@@ -132,14 +143,63 @@ const suggestions = [
   { label: "550 Providence Hwy, Walpole MA 2081" },
   { label: "352 Palmer Road, Ware MA 1082" },
   { label: "3005 Cranberry Hwy Rt 6 28, Wareham MA 2538" },
-  { label: "250 Rt 59, Airmont NY 10901" },
-  { label: "141 Washington Ave Extension, Albany NY 12205" },
-  { label: "13858 Rt 31 W, Albion NY 14411" },
-  { label: "2055 Niagara Falls Blvd, Amherst NY 14228" },
-  { label: "101 Sanford Farm Shpg Center, Amsterdam NY 12010" },
-  { label: "297 Grant Avenue, Auburn NY 13021" },
-  { label: "4133 Veterans Memorial Drive, Batavia NY 14020" },
-  { label: "6265 Brockport Spencerport Rd, Brockport NY 14420" },
+
+  {
+    label: "250 Rt 59, Airmont NY 10901",
+    lat: "41.113530",
+    lng: "-74.133400"
+  },
+
+  {
+    label: "Time Square, Manhattan, NY 10036",
+    lat: "40.759770",
+    lng: "-73.987970"
+  },
+  {
+    label: "10 Lincoln Center Plaza, New York, NY 10023",
+    lat: "40.772700",
+    lng: "-73.982730"
+  },
+  {
+    label: "8154 S. Spruce Street Brooklyn, NY 11201",
+    lat: "40.657060",
+    lng: "-73.610210"
+  },
+  {
+    label: "9200 Birchwood Ave. Brooklyn, NY 11210",
+    lat: "40.643600",
+    lng: "-73.943000"
+  },
+  {
+    label: "31 New Street Brooklyn, NY 11228",
+    lat: "40.610170",
+    lng: "-74.009250"
+  },
+  {
+    label: "19 4th Ave. Bronx, NY 10458",
+    lat: "40.824610",
+    lng: "-73.809100"
+  },
+  {
+    label: "282 N. Layfayette Ave. Bronx, NY 10452",
+    lat: "40.827000",
+    lng: "-73.830760"
+  },
+  {
+    label: "7952 Hillside Ave. Brooklyn, NY 11218",
+    lat: "40.653000",
+    lng: "-73.983840"
+  },
+  {
+    label: "626 Victoria Lane Brooklyn, NY 11216",
+    lat: "40.678770",
+    lng: "-73.933900"
+  },
+  {
+    label: "11 Broadway New York, NY 10004",
+    lat: "40.705280",
+    lng: "-74.014259"
+  },
   { label: "5399 W Genesse St, Camillus NY 13031" },
   { label: "3191 County rd 10, Canandaigua NY 14424" },
   { label: "30 Catskill, Catskill NY 12414" },
@@ -503,11 +563,41 @@ class MapComponent extends React.Component {
     single: null,
     multi: null,
     data: [],
-    coord: []
+    isLoaded: false,
+    coords: []
+  };
+
+  renderEachCoordinatePosition = stateObj => {
+    return this.state.coords.map(cord => {
+      var newPosition = [cord.lat, cord.lng];
+      return (
+        <Marker position={newPosition} icon={myIcon1}>
+          <Popup>
+            <div className="pop">
+              {cord.location_name}
+              <br />
+              {this.props.address}
+              <br />
+              {this.props.city}
+            </div>
+          </Popup>
+        </Marker>
+      );
+    });
   };
 
   handleChange = name => value => {
-    console.log(value.position);
+    fetch(
+      "http://api.parkwhiz.com/parking/reservation/?key=0255bd8ed81adc912b5d2d720e8dd777e901d81d"
+    )
+      .then(response => response.json())
+      .then(coords => {
+        this.setState({
+          coords: coords,
+          isLoaded: true
+        });
+      });
+
     this.setState({
       [name]: value,
       data: value
@@ -516,7 +606,7 @@ class MapComponent extends React.Component {
 
   render() {
     console.log(this.state.position);
-    console.log(this.state.coord);
+    console.log(this.state.coords);
     const { classes, theme } = this.props;
 
     const selectStyles = {
@@ -547,9 +637,10 @@ class MapComponent extends React.Component {
                 attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
-              <Marker position={this.state.data.position} icon={myIcon1}>
+              <Marker position={this.state.data.position} icon={myIcon}>
                 <Popup>Your current location</Popup>
               </Marker>
+              {this.renderEachCoordinatePosition()}
             </Map>
           </div>
         </NoSsr>

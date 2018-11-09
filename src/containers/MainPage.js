@@ -25,14 +25,14 @@ class MainPage extends Component {
       searchBar: input
     });
   };
-
-  componentDidMount() {
-    fetch(`https://waze.com/ul?q=66%20Acacia%20Avenue`)
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-      });
-  }
+  //
+  // componentDidMount() {
+  //   fetch(`https://waze.com/ul?q=66%20Acacia%20Avenue`)
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       console.log(data);
+  //     });
+  // }
 
   handleLogOut = event => {
     this.props.createUser(null);

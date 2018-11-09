@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 
 const FilterByCity = props => {
   console.log(props);
@@ -7,7 +7,7 @@ const FilterByCity = props => {
   };
 
   return (
-    <div>
+    <Fragment>
       <h1 className="banner">Parkit.</h1>
       <select onChange={handleChange}>
         <option value="AL">Alabama</option>
@@ -45,7 +45,7 @@ const FilterByCity = props => {
         <option value="WA">Washington</option>
         <option value="WI">Wisconsin</option>
       </select>
-    </div>
+    </Fragment>
   );
 };
 

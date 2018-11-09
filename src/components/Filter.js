@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import FilterByCity from "./FilterByCity";
 import FilterResults from "./FilterResults";
 import NavBar from "./NavBar";
@@ -59,19 +59,13 @@ class Filter extends Component {
   render() {
     console.log(this.props);
     return (
-      <div>
-        <NavBar
-          handleLogOut={this.handleLogOut}
-          handleProfile={this.handleProfile}
-          handleMainPage={this.handleMainPage}
-          handleFilterPage={this.handleFilterPage}
-        />
+      <Fragment>
         <FilterByCity handleCityChange={this.handleCityChange} />
         <FilterResults
           searchResults={this.state.FilterResults}
           filter={this.state.stateFilter}
         />
-      </div>
+      </Fragment>
     );
   }
 }

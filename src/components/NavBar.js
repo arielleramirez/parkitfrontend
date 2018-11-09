@@ -13,7 +13,10 @@ import userAccountIcon from "../img/userAccount.png";
 import search from "../img/search.png";
 import exit from "../img/exit.png";
 import menu from "../img/menu3.png";
-
+import MapComponent from "./MapComponent";
+import Filter from "./Filter";
+import SearchBar from "./SearchBar";
+import CurrentLocation from "./CurrentLocation";
 import { Image } from "semantic-ui-react";
 
 const styles = {
@@ -27,7 +30,8 @@ const styles = {
 
 class TemporaryDrawer extends React.Component {
   state = {
-    bottom: false
+    right: false,
+    target: []
   };
 
   toggleDrawer = (side, open) => () => {
@@ -57,12 +61,21 @@ class TemporaryDrawer extends React.Component {
       e.target.className == "Search Current Location"
     ) {
       this.props.handleMainPage();
+    } else if (
+      e.target.innerText == "Search By Garage" ||
+      e.target.className == "Search By Garage"
+    ) {
+      this.props.handleMainPage();
     } else {
       this.props.handleProfile();
     }
+    this.setState({
+      target: e.target
+    });
   };
 
   render() {
+    console.log(this.state.target.innerText);
     const { classes } = this.props;
 
     const sideList = (
@@ -72,7 +85,8 @@ class TemporaryDrawer extends React.Component {
             "Profile",
             "Filter By State",
             "Search Address",
-            "Search Current Location"
+            "Search Current Location",
+            "Search By Garage"
           ].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>
@@ -118,7 +132,6 @@ class TemporaryDrawer extends React.Component {
         >
           <Image src={menu} />
         </Button>
-
         <Drawer
           anchor="right"
           open={this.state.right}
@@ -136,6 +149,16 @@ class TemporaryDrawer extends React.Component {
             {sideList}
           </div>
         </Drawer>
+        {this.state.target.innerText === "Search Address" ? (
+          <MapComponent />
+        ) : null}
+        {this.state.target.innerText === "Filter By State" ? <Filter /> : null}
+        {this.state.target.innerText === "Search Current Location" ? (
+          <SearchBar />
+        ) : null}
+        {this.state.target.innerText === "Search By Garage" ? (
+          <CurrentLocation />
+        ) : null}
       </div>
     );
   }

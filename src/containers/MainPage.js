@@ -12,11 +12,9 @@ import Filter from "../components/Filter";
 class MainPage extends Component {
   state = {
     showDetail: false,
-    targetRecipe: {},
     searchBar: "",
+    targetRecipe: {},
     searchResult: [],
-    userRecipes: [],
-    userCollections: [],
     showForm: true
   };
 
@@ -33,6 +31,14 @@ class MainPage extends Component {
   //       console.log(data);
   //     });
   // }
+
+  handleShowDetail = obj => {
+    this.setState({
+      showDetail: true,
+      targetRecipe: obj,
+      showForm: false
+    });
+  };
 
   handleLogOut = event => {
     this.props.createUser(null);
@@ -57,12 +63,7 @@ class MainPage extends Component {
           handleProfile={this.handleProfile}
           handleMainPage={this.handleMainPage}
         />
-        <div className="main-page-search">
-          <SearchBar
-            handleSubmit={this.handleSubmit}
-            handleChange={this.handleChange}
-          />
-        </div>
+        <div className="main-page-search" />
       </React.Fragment>
     );
   }
@@ -72,3 +73,8 @@ export default connect(
   state => ({ currentUser: state.currentUser }),
   { createUser }
 )(MainPage);
+
+// <SearchBar
+//   handleSubmit={this.handleSubmit}
+//   handleChange={this.handleChange}
+// />

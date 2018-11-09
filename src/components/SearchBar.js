@@ -57,7 +57,7 @@ class SearchBar extends Component {
     console.log(this.state.lat);
     console.log(this.state.lng);
     return (
-      <div>
+      <Fragment>
         <h1 className="banner">Parkit.</h1>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group className="search-sides">
@@ -72,7 +72,7 @@ class SearchBar extends Component {
           </Form.Group>
         </Form>
         <SearchResults locationResults={this.state.locationResult} />
-      </div>
+      </Fragment>
     );
   }
 }

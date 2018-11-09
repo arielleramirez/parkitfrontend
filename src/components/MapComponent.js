@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import Select from "react-select";
@@ -558,7 +558,7 @@ const components = {
   ValueContainer
 };
 
-class MapComponent extends React.Component {
+class MapComponent extends Component {
   state = {
     single: null,
     multi: null,
@@ -620,31 +620,35 @@ class MapComponent extends React.Component {
     };
 
     return (
-      <div className={classes.root}>
-        <NoSsr>
-          <Select
-            classes={classes}
-            styles={selectStyles}
-            options={suggestions}
-            components={components}
-            value={this.state.single}
-            onChange={this.handleChange("single")}
-            placeholder="Search a country (start with a)"
-          />
-          <div className="map1">
-            <Map className="map1" center={this.state.data.position} zoom={16}>
-              <TileLayer
-                attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              />
-              <Marker position={this.state.data.position} icon={myIcon}>
-                <Popup>Your current location</Popup>
-              </Marker>
-              {this.renderEachCoordinatePosition()}
-            </Map>
-          </div>
-        </NoSsr>
-      </div>
+      <Fragment>
+        <h1 className="banner">Parkit.</h1>
+
+        <div className={classes.root}>
+          <NoSsr>
+            <Select
+              classes={classes}
+              styles={selectStyles}
+              options={suggestions}
+              components={components}
+              value={this.state.single}
+              onChange={this.handleChange("single")}
+              placeholder="Search a country (start with a)"
+            />
+            <div className="map1">
+              <Map className="map1" center={this.state.data.position} zoom={16}>
+                <TileLayer
+                  attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
+                <Marker position={this.state.data.position} icon={myIcon}>
+                  <Popup>Your current location</Popup>
+                </Marker>
+                {this.renderEachCoordinatePosition()}
+              </Map>
+            </div>
+          </NoSsr>
+        </div>
+      </Fragment>
     );
   }
 }

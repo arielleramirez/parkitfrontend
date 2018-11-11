@@ -57,7 +57,7 @@ class Filter extends Component {
   }
 
   render() {
-    console.log(this.props);
+    console.log(this.state.FilterResults);
     return (
       <Fragment>
         <FilterByCity handleCityChange={this.handleCityChange} />

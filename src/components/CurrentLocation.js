@@ -10,6 +10,8 @@ import {
   Popup
 } from "react-leaflet";
 import L from "leaflet";
+import { Card, Button } from "semantic-ui-react";
+import CurrentLocationResults from "./CurrentLocationResults";
 
 let myIcon1 = L.icon({
   iconUrl: usermarker,
@@ -30,20 +32,11 @@ class CurrentLocation extends Component {
     },
     haveUserLocation: false,
     zoom: 2,
-    coords: []
+    coords: [],
+    newData: []
   };
 
   componentDidMount() {
-    fetch(
-      "http://api.parkwhiz.com/parking/reservation/?key=0255bd8ed81adc912b5d2d720e8dd777e901d81d"
-    )
-      .then(response => response.json())
-      .then(coords => {
-        this.setState({
-          coords: coords,
-          isLoaded: true
-        });
-      });
     navigator.geolocation.getCurrentPosition(
       position => {
         this.setState({
@@ -72,19 +65,70 @@ class CurrentLocation extends Component {
     );
   }
 
+  onReserve = event => {
+    fetch(`http://localhost:3001/api/v1/reservations`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        user_id: this.state.newData.user_id,
+        parkingspace_id: this.state.newData.parkingspace_id,
+        name: this.state.newData.location_name,
+        street: this.state.newData.address,
+        city: this.state.newData.city,
+        state: this.state.newData.state,
+        zip: this.state.newData.zip,
+        lng: this.state.newData.lng,
+        lat: this.state.newData.lat
+      })
+    })
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          reserveSpot: data,
+          isReserved: true
+        });
+      });
+  };
+
   renderEachCoordinatePosition = stateObj => {
+    fetch(
+      "http://api.parkwhiz.com/parking/reservation/?key=0255bd8ed81adc912b5d2d720e8dd777e901d81d"
+    )
+      .then(response => response.json())
+      .then(coords => {
+        this.setState({
+          coords: coords,
+          isLoaded: true
+        });
+      });
     return this.state.coords.map(cord => {
       var newPosition = [cord.lat, cord.lng];
       return (
         <Marker position={newPosition} icon={myIcon1}>
           <Popup>
-            <div className="pop">
-              {cord.location_name}
-              <br />
-              {this.props.address}
-              <br />
-              {this.props.city}
-            </div>
+            <Card.Content style={{ paddingLeft: 20 }}>
+              <Card.Header style={{ fontSize: 25 }}>
+                {cord.location_name}
+              </Card.Header>
+              <Card.Description style={{ fontSize: 15, padding: 10 }}>
+                {cord.address}
+                <br />
+                {cord.city}
+                <br />
+                {cord.state}, {cord.zip}
+              </Card.Description>
+            </Card.Content>
+            <Card.Content extra>
+              <Button
+                onClick={this.onReserve}
+                style={this.state.isReserved ? { color: "#FFD1DC" } : null}
+                style={{ paddingLeft: 80, paddingRight: 80 }}
+              >
+                Reserve
+              </Button>
+            </Card.Content>
           </Popup>
         </Marker>
       );
@@ -92,16 +136,16 @@ class CurrentLocation extends Component {
   };
 
   render() {
+    console.log(this.state.newData);
     const position = [this.state.location.lat, this.state.location.lng];
 
     return (
       <Fragment>
-        <h1 className="banner">Parkit.</h1>
-        <div className="map1">
+        <div className="map2">
           <Map className="map1" center={position} zoom={this.state.zoom}>
             <TileLayer
-              attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution="&copy; <a href=&quot;http://www.openstreetmap.org/copyright&quot;>OpenStreetMap</a> &copy; <a href=&quot;https://carto.com/attributions&quot;>CARTO</a>"
+              url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
             />
             {this.state.haveUserLocation ? (
               <Marker position={position} icon={myIcon}>

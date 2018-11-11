@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -12,7 +12,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import userAccountIcon from "../img/userAccount.png";
 import search from "../img/search.png";
 import exit from "../img/exit.png";
-import menu from "../img/menu3.png";
+import menu from "../img/menu6.png";
 import MapComponent from "./MapComponent";
 import Filter from "./Filter";
 import SearchBar from "./SearchBar";
@@ -57,13 +57,13 @@ class TemporaryDrawer extends React.Component {
     ) {
       this.props.handleMainPage();
     } else if (
-      e.target.innerText == "Search Current Location" ||
-      e.target.className == "Search Current Location"
+      e.target.innerText == "Search By Garage" ||
+      e.target.className == "Search By Garage"
     ) {
       this.props.handleMainPage();
     } else if (
-      e.target.innerText == "Search By Garage" ||
-      e.target.className == "Search By Garage"
+      e.target.innerText == "Search Current Location" ||
+      e.target.className == "Search Current Location"
     ) {
       this.props.handleMainPage();
     } else {
@@ -125,13 +125,17 @@ class TemporaryDrawer extends React.Component {
     //   { key: "sign-out", text: "Sign Out", icon: "sign out" }
     // ];
     return (
-      <div>
-        <Button
-          className="burgerMenu"
-          onClick={this.toggleDrawer("right", true)}
-        >
-          <Image src={menu} />
-        </Button>
+      <Fragment>
+        <div className="mainbar">
+          <div className="banner">
+            <h1>Parkit.</h1>
+          </div>
+          <div className="burgerMenu">
+            <Button onClick={this.toggleDrawer("right", true)}>
+              <Image src={menu} />
+            </Button>
+          </div>
+        </div>
         <Drawer
           anchor="right"
           open={this.state.right}
@@ -154,12 +158,12 @@ class TemporaryDrawer extends React.Component {
         ) : null}
         {this.state.target.innerText === "Filter By State" ? <Filter /> : null}
         {this.state.target.innerText === "Search Current Location" ? (
-          <SearchBar />
-        ) : null}
-        {this.state.target.innerText === "Search By Garage" ? (
           <CurrentLocation />
         ) : null}
-      </div>
+        {this.state.target.innerText === "Search By Garage" ? (
+          <SearchBar />
+        ) : null}
+      </Fragment>
     );
   }
 }

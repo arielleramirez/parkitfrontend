@@ -27,15 +27,6 @@ class Profile extends Component {
       });
   };
 
-  handleCancel = id => {
-    let reservationsToKeep = this.state.userReservations.filter(reservation => {
-      return reservation.id != id;
-    });
-    this.setState({
-      userReservations: reservationsToKeep
-    });
-  };
-
   // handleFormSubmit = (e, parkingInfo) => {
   //   console.log(e);
   //   console.log(parkingInfo);
@@ -107,7 +98,16 @@ class Profile extends Component {
   //   }
   // .then(collections => collections.find(collection => collection))
   // console.log(reservation);
+
   // };
+  handleCancel = id => {
+    let reservationsToKeep = this.state.userReservations.filter(reservation => {
+      return reservation.id != id;
+    });
+    this.setState({
+      userReservations: reservationsToKeep
+    });
+  };
   handleShowForm = event => {
     this.setState({
       showForm: true,
@@ -130,7 +130,7 @@ class Profile extends Component {
   };
 
   render() {
-    console.log(this.state.userReservations);
+    console.log(this.props.ReservationsList);
     return (
       <div>
         <NavBar
@@ -138,13 +138,11 @@ class Profile extends Component {
           handleProfile={this.handleProfile}
           handleMainPage={this.handleMainPage}
         />
-        <h1 className="banner">Parkit.</h1>
         <Button onClick={this.handleReservation}>Your Reservations</Button>
         <ReservationsList
           userReservations={this.state.userReservations}
           handleCancel={this.handleCancel}
         />
-        <FormComponent />
       </div>
     );
   }

@@ -1,10 +1,11 @@
 import React, { Component, Fragment } from "react";
 import Reservation from "./Reservation";
+import CurrentLocation from "./CurrentLocation";
 import { Card } from "semantic-ui-react";
 
 class ReservationsList extends Component {
   render() {
-    console.log(this.props.userReservations);
+    console.log(this.props);
     return (
       <Card.Group itemsPerRow={4} padded="horizontally" className="Grid1">
         {this.props.userReservations.map((parkingspace, idx) => {

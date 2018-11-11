@@ -1,52 +1,61 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
+import { Dropdown } from "semantic-ui-react";
+
+const state = [
+  { key: "AL", value: "AL", flag: "", text: "Alabama" },
+  { key: "AK", value: "AK", flag: "", text: "Alaska" },
+  { key: "AZ", value: "AZ", flag: "", text: "Arizona" },
+  { key: "CA", value: "CA", flag: "", text: "California" },
+  { key: "CO", value: "CO", flag: "", text: "Colorado" },
+  { key: "CT", value: "CT", flag: "", text: "Connecticut" },
+  { key: "FL", value: "FL", flag: "", text: "Florida" },
+  { key: "GA", value: "GA", flag: "", text: "Georgia" },
+  { key: "ID", value: "ID", flag: "", text: "Idaho" },
+  { key: "IL", value: "IL", flag: "", text: "Illinois" },
+  { key: "IN", value: "IN", flag: "", text: "Indiana" },
+  { key: "IA", value: "IA", flag: "", text: "Iowa" },
+  { key: "KS", value: "KS", flag: "", text: "Kansas" },
+  { key: "LA", value: "LA", flag: "", text: "Louisiana" },
+  { key: "MD", value: "MD", flag: "", text: "Maryland" },
+  { key: "MA", value: "MA", flag: "", text: "Massachusetts" },
+  { key: "MI", value: "MI", flag: "", text: "Michigan" },
+  { key: "MN", value: "MN", flag: "", text: "Minnesota" },
+  { key: "MO", value: "MO", flag: "", text: "Missouri" },
+  { key: "NV", value: "NV", flag: "", text: "Nevada" },
+  { key: "NJ", value: "NJ", flag: "", text: "New Jersey" },
+  { key: "NY", value: "NY", flag: "", text: "New York" },
+  { key: "NC", value: "NC", flag: "", text: "North Carolina" },
+  { key: "OH", value: "OH", flag: "", text: "Ohio" },
+  { key: "OK", value: "OK", flag: "", text: "Oklahoma" },
+  { key: "OR", value: "OR", flag: "", text: "Oregan" },
+  { key: "PA", value: "PA", flag: "", text: "Pennsylvania" },
+  { key: "RI", value: "RI", flag: "", text: "Rhode Island" },
+  { key: "SC", value: "SC", flag: "", text: "South Carolina" },
+  { key: "TN", value: "TN", flag: "", text: "Tennessee" },
+  { key: "TX", value: "TX", flag: "", text: "Texas" },
+  { key: "VA", value: "VA", flag: "", text: "Virginia" },
+  { key: "WA", value: "WA", flag: "", text: "Washington" },
+  { key: "WI", value: "WI", flag: "", text: "Wisconsin" }
+];
 
 const FilterByCity = props => {
-  console.log(props);
-  const handleChange = event => {
-    props.handleCityChange(event.target.value);
+  const handleChange = (event, { value }) => {
+    console.log(event.target.value);
+    props.handleCityChange(value);
   };
 
   return (
-    <Fragment>
-      <h1 className="banner">Parkit.</h1>
-      <select onChange={handleChange}>
-        <option value="AL">Alabama</option>
-        <option value="AK">Alaska</option>
-        <option value="AZ">Arizona</option>
-        <option value="CA">California</option>
-        <option value="CO">Colorado</option>
-        <option value="CT">Connecticut</option>
-        <option value="FL">Florida</option>
-        <option value="GA">Georgia</option>
-        <option value="ID">Idaho</option>
-        <option value="IL">Illinois</option>
-        <option value="IN">Indiana</option>
-        <option value="IA">Iowa</option>
-        <option value="KS">Kansas</option>
-        <option value="LA">Louisiana</option>
-        <option value="MD">Maryland</option>
-        <option value="MA">Massachusetts</option>
-        <option value="MI">Michigan</option>
-        <option value="MN">Minnesota</option>
-        <option value="MO">Missouri</option>
-        <option value="NV">Nevada</option>
-        <option value="NJ">New Jersey</option>
-        <option value="NY">New York</option>
-        <option value="NC">North Carolina</option>
-        <option value="OH">Ohio</option>
-        <option value="OK">Oklahoma</option>
-        <option value="OR">Oregan</option>
-        <option value="PA">Pennsylvania</option>
-        <option value="RI">Rhode Island</option>
-        <option value="SC">South Carolina</option>
-        <option value="TN">Tennessee</option>
-        <option value="TX">Texas</option>
-        <option value="VA">Virginia</option>
-        <option value="WA">Washington</option>
-        <option value="WI">Wisconsin</option>
-      </select>
-    </Fragment>
+    <div className="Dropdown">
+      <Dropdown
+        className="Dropdown"
+        onChange={handleChange}
+        placeholder="Select State"
+        search
+        fluid
+        selection
+        options={state}
+      />
+    </div>
   );
 };
-
 export default FilterByCity;

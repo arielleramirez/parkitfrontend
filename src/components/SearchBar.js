@@ -14,6 +14,7 @@ import {
 import L from "leaflet";
 import ReservationsList from "./ReservationsList";
 import Filter from "./Filter";
+import CurrentLocationResults from "./CurrentLocationResults";
 
 let myIcon = L.icon({
   iconUrl: usermarker,
@@ -58,8 +59,7 @@ class SearchBar extends Component {
     console.log(this.state.lng);
     return (
       <Fragment>
-        <h1 className="banner">Parkit.</h1>
-        <Form onSubmit={this.handleSubmit}>
+        <Form className="search" onSubmit={this.handleSubmit}>
           <Form.Group className="search-sides">
             <input
               onChange={this.handleChange}

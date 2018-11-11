@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Result from "./Result";
 import { Container } from "semantic-ui-react";
 import { Card } from "semantic-ui-react";
+import CurrentLocation from "./CurrentLocation";
 
 class SearchResults extends Component {
   render() {

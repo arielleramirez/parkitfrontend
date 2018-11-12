@@ -624,6 +624,7 @@ class MapComponent extends Component {
         <div className={classes.root} className="search">
           <NoSsr>
             <Select
+              styles={{ zIndex: 99 }}
               className="searchBar"
               classes={classes}
               styles={selectStyles}

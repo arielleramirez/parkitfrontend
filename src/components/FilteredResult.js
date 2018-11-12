@@ -27,6 +27,8 @@ class Result extends Component {
     lng: []
   };
 
+  handleClick = () => this.setState({ isReserved: !this.state.isReserved });
+
   onReserve = event => {
     fetch(`http://localhost:3001/api/v1/reservations`, {
       method: "POST",
@@ -55,19 +57,21 @@ class Result extends Component {
   };
 
   render() {
+    const { isReserved } = this.state;
     console.log(this.props);
     return (
       <div>
         <Card
           style={{
             width: 300,
-            marginLeft: 25,
+            marginLeft: 130,
             marginRight: 25,
             marginTop: 45,
-            zIndex: 5
+            zIndex: 5,
+            border: 2
           }}
         >
-          <div className="map">
+          <div className="maps-container">
             <Map className="map" center={this.props.position} zoom={16}>
               <TileLayer
                 attribution="&copy; <a href=&quot;http://www.openstreetmap.org/copyright&quot;>OpenStreetMap</a> &copy; <a href=&quot;https://carto.com/attributions&quot;>CARTO</a>"
@@ -92,10 +96,16 @@ class Result extends Component {
           <Card.Content extra>
             <Button
               onClick={this.onReserve}
-              style={this.state.isReserved ? { color: "#FFD1DC" } : null}
-              style={{ paddingLeft: 80, paddingRight: 80, marginLeft: 35 }}
+              isReserved={isReserved}
+              style={{
+                backgroundColor: isReserved ? "#a5456a" : null,
+                color: isReserved ? "white" : null,
+                paddingLeft: 80,
+                paddingRight: 80,
+                marginLeft: 35
+              }}
             >
-              Reserve
+              {isReserved ? "Reserved" : "Reserve"}
             </Button>
           </Card.Content>
         </Card>

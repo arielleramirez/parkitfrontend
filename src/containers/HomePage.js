@@ -22,12 +22,12 @@ class HomePage extends Component {
         <div style={sectionStyle}>
           <Login />
           <SignUp />
-          <h1 className="title">Parkit.</h1>
+          <h1 className="title">ParkIt.</h1>
           <hr />
 
           <h1 className="subtitle">{`It's Simple`} </h1>
           <Grid className="grid">
-            <Grid.Column style={{ marginLeft: 190, color: "#863a58" }}>
+            <Grid.Column style={{ marginLeft: 475, color: "#863a58" }}>
               <Icon.Group size="huge">
                 <Icon size="big" name="circle outline" />
                 <Icon className="searched" name="search" />

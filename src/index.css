@@ -16,12 +16,11 @@ code {
 .title {
   color: white;
   text-decoration: none;
-  font-size: 85px;
+  font-size: 150px;
   text-align: center;
   margin-top: 250px;
-  font-family: "Goblin One", cursive;
+  font-family: "Noto Serif", serif;
   color: white;
-  text-shadow: 4px 4px black;
 }
 
 .banner {
@@ -181,7 +180,7 @@ code {
 }
 
 hr {
-  margin: 300px 200px 0 200px;
+  margin: 430px 200px 0 200px;
   border: 1px solid #863a58;
 }
 .subtitle {
@@ -215,10 +214,10 @@ h2 {
 }
 
 .map {
-  height: 40vh;
-  width: 40vh;
-  margin-left: 5px;
-  margin-top: 5px;
+  height: 28vh;
+  width: 28vh;
+  margin-left: 10px;
+  margin-top: 10px;
   border-radius: 24px;
   margin-bottom: 20px;
 }
@@ -226,9 +225,10 @@ h2 {
 .map1 {
   height: 60vh;
   width: 95vh;
-  margin-left: 120px;
-  margin-top: 5px;
+  margin-left: 245px;
+  margin-top: 50px;
   margin-bottom: 20px;
+  z-index: -5;
 }
 
 .map2 {
@@ -238,7 +238,9 @@ h2 {
 }
 
 .burgerMenu {
-  padding-left: 1280px;
+  padding-left: 1750px;
+  outline: none;
+  border: none;
 }
 
 .searchBar {
@@ -252,7 +254,10 @@ h2 {
 }
 
 .mainbar {
-  background-color: #d4dadc;
+  background-color: #a5456a;
+  height: 8vh;
+  outline: none;
+  border: none;
 }
 
 .search {

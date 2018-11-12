@@ -128,7 +128,7 @@ class TemporaryDrawer extends React.Component {
       <Fragment>
         <div className="mainbar">
           <div className="banner">
-            <h1>Parkit.</h1>
+            <h1>ParkIt.</h1>
           </div>
           <div className="burgerMenu">
             <Button onClick={this.toggleDrawer("right", true)}>

@@ -3,6 +3,16 @@ import FilterByCity from "./FilterByCity";
 import FilterResults from "./FilterResults";
 import NavBar from "./NavBar";
 import { Card } from "semantic-ui-react";
+import Background from "../img/background3.jpg";
+
+const sectionStyle = {
+  width: "100%",
+  height: "150vh",
+  position: "absolute",
+  backgroundPosition: "center",
+  backgroundSize: "cover",
+  backgroundImage: `url(${Background})`
+};
 
 class Filter extends Component {
   state = {
@@ -60,11 +70,13 @@ class Filter extends Component {
     console.log(this.state.FilterResults);
     return (
       <Fragment>
-        <FilterByCity handleCityChange={this.handleCityChange} />
-        <FilterResults
-          searchResults={this.state.FilterResults}
-          filter={this.state.stateFilter}
-        />
+        <div style={sectionStyle}>
+          <FilterByCity handleCityChange={this.handleCityChange} />
+          <FilterResults
+            searchResults={this.state.FilterResults}
+            filter={this.state.stateFilter}
+          />
+        </div>
       </Fragment>
     );
   }

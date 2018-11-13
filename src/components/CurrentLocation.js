@@ -12,6 +12,20 @@ import {
 import L from "leaflet";
 import { Card, Button } from "semantic-ui-react";
 import CurrentLocationResults from "./CurrentLocationResults";
+import Background from "../img/background3.jpg";
+
+const sectionStyle = {
+  width: "100%",
+  height: "92vh",
+  position: "absolute",
+  backgroundPosition: "center",
+  backgroundSize: "cover",
+  backgroundColor: "white",
+  backgroundImage: `url(${Background})`,
+  zIndex: -9,
+  position: "relative",
+  opacity: 0.75
+};
 
 let myIcon1 = L.icon({
   iconUrl: usermarker,
@@ -37,6 +51,16 @@ class CurrentLocation extends Component {
   };
 
   componentDidMount() {
+    fetch(
+      "http://api.parkwhiz.com/parking/reservation/?key=0255bd8ed81adc912b5d2d720e8dd777e901d81d"
+    )
+      .then(response => response.json())
+      .then(coords => {
+        this.setState({
+          coords: coords,
+          isLoaded: true
+        });
+      });
     navigator.geolocation.getCurrentPosition(
       position => {
         this.setState({
@@ -93,18 +117,9 @@ class CurrentLocation extends Component {
   };
 
   renderEachCoordinatePosition = stateObj => {
-    fetch(
-      "http://api.parkwhiz.com/parking/reservation/?key=0255bd8ed81adc912b5d2d720e8dd777e901d81d"
-    )
-      .then(response => response.json())
-      .then(coords => {
-        this.setState({
-          coords: coords,
-          isLoaded: true
-        });
-      });
     return this.state.coords.map(cord => {
       var newPosition = [cord.lat, cord.lng];
+
       return (
         <Marker position={newPosition} icon={myIcon1}>
           <Popup>
@@ -136,26 +151,46 @@ class CurrentLocation extends Component {
   };
 
   render() {
-    console.log(this.state.newData);
+    console.log(this.state.coords);
     const position = [this.state.location.lat, this.state.location.lng];
 
     return (
       <Fragment>
-        <div className="map2">
-          <Map className="map1" center={position} zoom={this.state.zoom}>
-            <TileLayer
-              attribution="&copy; <a href=&quot;http://www.openstreetmap.org/copyright&quot;>OpenStreetMap</a> &copy; <a href=&quot;https://carto.com/attributions&quot;>CARTO</a>"
-              url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
-            />
-            {this.state.haveUserLocation ? (
-              <Marker position={position} icon={myIcon}>
-                <Popup>Your current location</Popup>
-              </Marker>
-            ) : (
-              ""
-            )}
-            {this.renderEachCoordinatePosition()}
-          </Map>
+        <div
+          className="box"
+          style={{
+            height: 700,
+            width: 1200,
+            backgroundColor: "white",
+            opacity: 0.85,
+            marginLeft: 350,
+            marginTop: 150
+          }}
+        >
+          <div
+            className="map2"
+            style={{
+              zIndex: 99,
+              opacity: 1,
+              marginTop: 10,
+              marginRight: 600
+            }}
+          >
+            <Map className="map1" center={position} zoom={this.state.zoom}>
+              <TileLayer
+                attribution="&copy; <a href=&quot;http://www.openstreetmap.org/copyright&quot;>OpenStreetMap</a> &copy; <a href=&quot;https://carto.com/attributions&quot;>CARTO</a>"
+                url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+              />
+              {this.state.haveUserLocation ? (
+                <Marker position={position} icon={myIcon}>
+                  <Popup>Your current location</Popup>
+                </Marker>
+              ) : (
+                ""
+              )}
+              {this.renderEachCoordinatePosition()}
+            </Map>
+          </div>
         </div>
       </Fragment>
     );

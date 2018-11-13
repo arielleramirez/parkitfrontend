@@ -13,6 +13,8 @@ import CancelIcon from "@material-ui/icons/Cancel";
 import { emphasize } from "@material-ui/core/styles/colorManipulator";
 import usermarker from "../img/u.png";
 import parkingspacemarker from "../img/marker.png";
+import Background from "../img/background3.jpg";
+
 import {
   LayersControl,
   BaseLayer,
@@ -23,6 +25,16 @@ import {
 } from "react-leaflet";
 import L from "leaflet";
 
+const sectionStyle = {
+  width: "100%",
+  height: "92vh",
+  position: "absolute",
+  backgroundPosition: "center",
+  backgroundSize: "cover",
+  backgroundColor: "white",
+  backgroundImage: `url(${Background})`,
+  zIndex: -9
+};
 let myIcon1 = L.icon({
   iconUrl: usermarker,
   iconAnchor: [12.5, 41],
@@ -621,32 +633,38 @@ class MapComponent extends Component {
 
     return (
       <Fragment>
-        <div className={classes.root} className="search">
-          <NoSsr>
-            <Select
-              styles={{ zIndex: 99 }}
-              className="searchBar"
-              classes={classes}
-              styles={selectStyles}
-              options={suggestions}
-              components={components}
-              value={this.state.single}
-              onChange={this.handleChange("single")}
-              placeholder="Search a country (start with a)"
-            />
-            <div className="map1">
-              <Map className="map1" center={this.state.data.position} zoom={16}>
-                <TileLayer
-                  attribution="&copy; <a href=&quot;http://www.openstreetmap.org/copyright&quot;>OpenStreetMap</a> &copy; <a href=&quot;https://carto.com/attributions&quot;>CARTO</a>"
-                  url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
-                />
-                <Marker position={this.state.data.position} icon={myIcon}>
-                  <Popup>Your current location</Popup>
-                </Marker>
-                {this.renderEachCoordinatePosition()}
-              </Map>
-            </div>
-          </NoSsr>
+        <div style={sectionStyle}>
+          <div className={classes.root} className="search">
+            <NoSsr>
+              <Select
+                styles={{ zIndex: 99 }}
+                className="searchBar"
+                classes={classes}
+                styles={selectStyles}
+                options={suggestions}
+                components={components}
+                value={this.state.single}
+                onChange={this.handleChange("single")}
+                placeholder="Search a country (start with a)"
+              />
+              <div className="map1">
+                <Map
+                  className="map1"
+                  center={this.state.data.position}
+                  zoom={16}
+                >
+                  <TileLayer
+                    attribution="&copy; <a href=&quot;http://www.openstreetmap.org/copyright&quot;>OpenStreetMap</a> &copy; <a href=&quot;https://carto.com/attributions&quot;>CARTO</a>"
+                    url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+                  />
+                  <Marker position={this.state.data.position} icon={myIcon}>
+                    <Popup>Your current location</Popup>
+                  </Marker>
+                  {this.renderEachCoordinatePosition()}
+                </Map>
+              </div>
+            </NoSsr>
+          </div>
         </div>
       </Fragment>
     );

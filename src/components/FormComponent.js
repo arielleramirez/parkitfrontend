@@ -7,11 +7,8 @@ class FormComponent extends Component {
   state = {
     name: "",
     image: "",
-    credit_card: "",
-    cooking_time: "",
-    ingredient1: "",
-    ingredient2: "",
-    ingredient3: ""
+    email: "",
+    password: ""
   };
 
   handleChange = e => {
@@ -41,7 +38,52 @@ class FormComponent extends Component {
   };
 
   render() {
-    return <div />;
+    return (
+      <div style={{ marginLeft: 600, marginTop: 350, width: 600 }}>
+        <Form onSubmit={this.handleSubmit}>
+          <Form.Field>
+            <label style={{ color: "#863a58", fontSize: 14 }}>
+              Edit Account
+            </label>
+            <input
+              onChange={this.handleChange}
+              type="text"
+              name="Name"
+              placeholder="Name"
+            />
+          </Form.Field>
+
+          <Form.Field>
+            <input
+              onChange={this.handleChange}
+              type="text"
+              name="Email"
+              placeholder="Email"
+            />
+          </Form.Field>
+          <Form.Field>
+            <input
+              onChange={this.handleChange}
+              type="text"
+              name="Password"
+              placeholder="Password"
+            />
+          </Form.Field>
+          <input
+            type="file"
+            onChange={this.handleImageChange}
+            className="inputfile"
+            id="embedpollfileinput"
+          />
+          <label for="embedpollfileinput" className="ui floated button">
+            <i className="ui upload icon" />
+            Upload image
+          </label>
+
+          <Button content="Submit" />
+        </Form>
+      </div>
+    );
   }
 }
 

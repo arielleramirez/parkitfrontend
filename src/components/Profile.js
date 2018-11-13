@@ -139,10 +139,12 @@ class Profile extends Component {
           handleMainPage={this.handleMainPage}
         />
         <Button onClick={this.handleReservation}>Your Reservations</Button>
+        <Button onClick={this.handleAccountEdit}>Edit Account</Button>
         <ReservationsList
           userReservations={this.state.userReservations}
           handleCancel={this.handleCancel}
         />
+        <FormComponent />
       </div>
     );
   }

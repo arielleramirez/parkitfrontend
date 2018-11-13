@@ -81,13 +81,13 @@ class Login extends Component {
           // onSubmit={this.handleSubmit}
         >
           <Image
-            style={{ marginLeft: 120, marginTop: 20 }}
+            style={{ marginLeft: 225, marginTop: 20 }}
             wrapped
             size="medium"
-            src="https://react.semantic-ui.com/images/avatar/large/rachel.png"
+            src={require("../img/signinMarker.png")}
           />
           <Modal.Header>
-            <div style={{ marginLeft: 200, marginTop: 20, fontSize: 35 }}>
+            <div style={{ marginLeft: 210, marginTop: 20, fontSize: 35 }}>
               Login
             </div>
             <div style={{ marginLeft: 205, marginTop: 20, fontSize: 12 }}>

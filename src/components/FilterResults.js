@@ -8,7 +8,7 @@ class FilterResults extends Component {
   render() {
     console.log(this.props.searchResults);
     return (
-      <Card.Group itemsPerRow={3}>
+      <Card.Group itemsPerRow={3} style={{ marginTop: 20, marginBottom: 20 }}>
         {this.props.searchResults.map((parkingspace, idx) => {
           if (this.props.filter === parkingspace.state) {
             return (

@@ -13,6 +13,7 @@ import { connect } from "react-redux";
 import { createUser } from "../actions/SignUp";
 import MainPage from "../containers/MainPage";
 import { Redirect } from "react-router";
+import signMarker from "../img/signinMarker.png";
 
 class SignUp extends Component {
   state = {
@@ -94,10 +95,10 @@ class SignUp extends Component {
           // onSubmit={this.handleSubmit}
         >
           <Image
-            style={{ marginLeft: 120, marginTop: 20 }}
+            style={{ marginLeft: 225, marginTop: 20 }}
             wrapped
             size="medium"
-            src="https://react.semantic-ui.com/images/avatar/large/rachel.png"
+            src={require("../img/signinMarker.png")}
           />
           <Modal.Header>
             <div style={{ marginLeft: 200, marginTop: 20, fontSize: 35 }}>

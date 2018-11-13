@@ -18,6 +18,7 @@ import Filter from "./Filter";
 import SearchBar from "./SearchBar";
 import CurrentLocation from "./CurrentLocation";
 import { Image } from "semantic-ui-react";
+import Search from "./Search";
 
 const styles = {
   list: {
@@ -42,29 +43,17 @@ class TemporaryDrawer extends React.Component {
   handleChange = e => {
     console.log(e.target);
     if (
-      e.target.innerText == "LogOut" ||
-      e.target.className == "sign out icon"
+      e.target.innerText === "LogOut" ||
+      e.target.className === "sign out icon"
     ) {
       this.props.handleLogOut();
-    } else if (
-      e.target.innerText == "Filter By State" ||
-      e.target.className == "Filter By State"
-    ) {
+    } else if (e.target.innerText === "Filter By State") {
       this.props.handleMainPage();
-    } else if (
-      e.target.innerText == "Search Address" ||
-      e.target.className == "Search Address"
-    ) {
+    } else if (e.target.innerText === "Search Address") {
       this.props.handleMainPage();
-    } else if (
-      e.target.innerText == "Search By Garage" ||
-      e.target.className == "Search By Garage"
-    ) {
+    } else if (e.target.innerText === "Search By Garage") {
       this.props.handleMainPage();
-    } else if (
-      e.target.innerText == "Search Current Location" ||
-      e.target.className == "Search Current Location"
-    ) {
+    } else if (e.target.innerText === "Search Current Location") {
       this.props.handleMainPage();
     } else {
       this.props.handleProfile();
@@ -160,9 +149,7 @@ class TemporaryDrawer extends React.Component {
         {this.state.target.innerText === "Search Current Location" ? (
           <CurrentLocation />
         ) : null}
-        {this.state.target.innerText === "Search By Garage" ? (
-          <SearchBar />
-        ) : null}
+        {this.state.target.innerText === "Search By Garage" ? <Search /> : null}
       </Fragment>
     );
   }

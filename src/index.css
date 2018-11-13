@@ -243,7 +243,8 @@ h2 {
 }
 
 .burgerMenu {
-  padding-left: 1750px;
+  /* padding-left: 1750px; */
+  padding-left: 1000;
   outline: none;
   border: none;
 }
@@ -285,4 +286,48 @@ h2 {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+/* aoisdjfaoisdjf;oaisjdf*/
+* {
+  margin: 0;
+  padding: 0;
+}
+#sideBar {
+  position: fixed;
+  width: 1px;
+  background: white;
+}
+
+/* #sideBar.active {
+  left: 0px;
+} */
+
+#sideBar ul {
+  border: 2px solid #a5456a;
+  border-radius: 10px;
+}
+#sideBar ul li {
+  color: black;
+  list-style: none;
+  padding: 15px 10px;
+}
+
+#sideBar .toggle-btn {
+  position: absolute;
+  left: 50px;
+  top: 15px;
+}
+
+#sideBar .toggle-btn span {
+  display: block;
+  width: 40px;
+  height: 5px;
+  background: white;
+  margin: 8px 0px;
+}
+
+.toggle-btn {
+  margin-left: 1600px;
+  padding-bottom: 10px;
 }

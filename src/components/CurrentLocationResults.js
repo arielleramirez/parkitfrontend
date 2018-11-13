@@ -1,15 +1,15 @@
 import React, { Component } from "react";
-import CurrentLocationResult from "./CurrentLocationResult";
+import Markers from "./Markers";
 
 class CurrentLocationResults extends Component {
   render() {
-    console.log(this.props);
-    return this.props.coords.map((parkingspace, idx) => {
+    console.log(this.props.coords);
+    return this.props.coords.map(parkingspace => {
       return (
-        <CurrentLocationResult
-          key={idx}
+        <Markers
+          key={parkingspace.id}
           id={parkingspace.id}
-          {...parkingspace}
+          location_name={parkingspace.location_name}
           position={[parkingspace.lat, parkingspace.lng]}
         />
       );

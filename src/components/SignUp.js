@@ -124,6 +124,7 @@ class SignUp extends Component {
                     value={this.state.password}
                     onChange={this.handleOnChange}
                     placeholder="Password"
+                    type="password"
                     name="password"
                   />
                 </Form.Field>

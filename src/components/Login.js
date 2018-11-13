@@ -111,6 +111,7 @@ class Login extends Component {
                     placeholder="Password"
                     name="password"
                     value={this.state.password}
+                    type="password"
                   />
                 </Form.Field>
 

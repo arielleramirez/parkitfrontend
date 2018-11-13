@@ -13,6 +13,7 @@ import L from "leaflet";
 import { Card, Button } from "semantic-ui-react";
 import CurrentLocationResults from "./CurrentLocationResults";
 import Background from "../img/background3.jpg";
+import Markers from "./Markers";
 
 const sectionStyle = {
   width: "100%",
@@ -47,7 +48,8 @@ class CurrentLocation extends Component {
     haveUserLocation: false,
     zoom: 2,
     coords: [],
-    newData: []
+    newData: [],
+    isReserved: false
   };
 
   componentDidMount() {
@@ -89,26 +91,27 @@ class CurrentLocation extends Component {
     );
   }
 
-  onReserve = event => {
+  onReserve = cord => {
     fetch(`http://localhost:3001/api/v1/reservations`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        user_id: this.state.newData.user_id,
-        parkingspace_id: this.state.newData.parkingspace_id,
-        name: this.state.newData.location_name,
-        street: this.state.newData.address,
-        city: this.state.newData.city,
-        state: this.state.newData.state,
-        zip: this.state.newData.zip,
-        lng: this.state.newData.lng,
-        lat: this.state.newData.lat
+        user_id: 1, // return to once sign-on is finished up.
+        parkingspace_id: cord.parkingspace_id,
+        name: cord.location_name,
+        street: cord.address,
+        city: cord.city,
+        state: cord.state,
+        zip: cord.zip,
+        lng: cord.lng,
+        lat: cord.lat
       })
     })
       .then(response => response.json())
       .then(data => {
+        debugger;
         this.setState({
           reserveSpot: data,
           isReserved: true
@@ -119,9 +122,14 @@ class CurrentLocation extends Component {
   renderEachCoordinatePosition = stateObj => {
     return this.state.coords.map(cord => {
       var newPosition = [cord.lat, cord.lng];
+      const { isReserved } = this.state;
 
       return (
-        <Marker position={newPosition} icon={myIcon1}>
+        <Marker
+          // onClick={() => this.onReserve(cord)}
+          position={newPosition}
+          icon={myIcon1}
+        >
           <Popup>
             <Card.Content style={{ paddingLeft: 20 }}>
               <Card.Header style={{ fontSize: 25 }}>
@@ -137,11 +145,16 @@ class CurrentLocation extends Component {
             </Card.Content>
             <Card.Content extra>
               <Button
-                onClick={this.onReserve}
+                onClick={() => this.onReserve(cord)}
                 style={this.state.isReserved ? { color: "#FFD1DC" } : null}
-                style={{ paddingLeft: 80, paddingRight: 80 }}
+                style={{
+                  paddingLeft: 80,
+                  paddingRight: 80,
+                  backgroundColor: isReserved ? "#a5456a" : null,
+                  color: isReserved ? "white" : null
+                }}
               >
-                Reserve
+                {isReserved ? "Reserved" : "Reserve"}
               </Button>
             </Card.Content>
           </Popup>
@@ -152,6 +165,7 @@ class CurrentLocation extends Component {
 
   render() {
     console.log(this.state.coords);
+    console.log(this.props);
     const position = [this.state.location.lat, this.state.location.lng];
 
     return (
@@ -192,6 +206,8 @@ class CurrentLocation extends Component {
             </Map>
           </div>
         </div>
+
+        <CurrentLocationResults coords={this.state.coords} />
       </Fragment>
     );
   }

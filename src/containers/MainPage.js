@@ -8,6 +8,7 @@ import { Container } from "semantic-ui-react";
 import { Grid } from "semantic-ui-react";
 import MapComponent from "../components/MapComponent";
 import Filter from "../components/Filter";
+import CurrentLocation from "../components/CurrentLocation";
 
 class MainPage extends Component {
   state = {
@@ -63,7 +64,6 @@ class MainPage extends Component {
           handleProfile={this.handleProfile}
           handleMainPage={this.handleMainPage}
         />
-        <div className="main-page-search" />
       </React.Fragment>
     );
   }

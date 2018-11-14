@@ -63,7 +63,7 @@ class Login extends Component {
           className="logInButton"
           onClick={this.show(true)}
           style={{
-            marginLeft: 80,
+            marginLeft: 5,
             textDecoration: "none",
             paddingLeft: 40,
             paddingRight: 40,

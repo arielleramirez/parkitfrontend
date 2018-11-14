@@ -64,9 +64,9 @@ class Result extends Component {
         <Card
           style={{
             width: 300,
-            marginLeft: 130,
+            marginLeft: "80%",
             marginRight: 25,
-            marginTop: 45,
+            marginTop: "5%",
             zIndex: 5,
             border: 2
           }}

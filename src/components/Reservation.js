@@ -37,7 +37,7 @@ class Reservations extends Component {
             width: 300,
             marginLeft: 130,
             marginRight: 25,
-            marginTop: 45,
+            marginTop: 50,
             zIndex: 5,
             border: 2
           }}
@@ -70,7 +70,7 @@ class Reservations extends Component {
               style={{
                 paddingLeft: 80,
                 paddingRight: 80,
-                marginLeft: 35
+                marginLeft: 5
               }}
             >
               Cancel Reservation

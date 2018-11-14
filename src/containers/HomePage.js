@@ -33,26 +33,26 @@ class HomePage extends Component {
 
           <h1 className="subtitle">{`It's Simple`} </h1>
           <Grid className="grid">
-            <Grid.Column style={{ marginLeft: 460, color: "#863a58" }}>
+            <Grid.Column style={{ marginLeft: "21%", color: "#863a58" }}>
               <span className="dot">
                 <Image style={{ marginLeft: 80 }} src={search} />
               </span>
-              <h2>Search</h2>
-              <p style={{ width: 265, fontSize: 18 }}>
+              <h2 style={{ marginLeft: 75 }}>Search</h2>
+              <p style={{ width: 265, fontSize: 18, marginLeft: "-3.5%" }}>
                 Convienent search options right at your finger tips.
               </p>
             </Grid.Column>
-            <Grid.Column style={{ marginLeft: 225, color: "#863a58" }}>
+            <Grid.Column style={{ marginLeft: "15.5%", color: "#863a58" }}>
               <Image style={{ marginLeft: 80 }} src={marker} />
-              <h2>Locate</h2>
-              <p style={{ width: 265, fontSize: 18 }}>
+              <h2 style={{ marginLeft: 80 }}>Locate</h2>
+              <p style={{ width: 265, fontSize: 18, marginLeft: "-3.5%" }}>
                 Select the option that best suits you.
               </p>
             </Grid.Column>
             <Grid.Column style={{ marginLeft: 225, color: "#863a58" }}>
               <Image style={{ marginLeft: 85 }} src={checkmark} />
 
-              <h2>Reserve</h2>
+              <h2 style={{ marginLeft: 80 }}>Reserve</h2>
               <p style={{ width: 265, fontSize: 18 }}>
                 With a click of a button, reserve your space now!
               </p>
@@ -61,13 +61,13 @@ class HomePage extends Component {
           <hr className="hr" />
           <h1 className="subtitle">Our Favotires </h1>
           <Carousel />
-          <h1 className="subtitle1">Get The App </h1>
+          <h1 className="subtitle1">Coming Soon </h1>
 
           <Image
             style={{
               width: 250,
               float: "right",
-              marginRight: 685,
+              marginRight: "37%",
               paddingLeft: 10,
               marginTop: 20
             }}

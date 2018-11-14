@@ -3,11 +3,12 @@ import FilterByCity from "./FilterByCity";
 import FilterResults from "./FilterResults";
 import NavBar from "./NavBar";
 import { Card } from "semantic-ui-react";
-import Background from "../img/background3.jpg";
+import Background from "../img/background.jpg";
 
 const sectionStyle = {
   width: "100%",
   height: "150vh",
+  opacity: 0.5,
   position: "absolute",
   backgroundPosition: "center",
   backgroundSize: "cover",

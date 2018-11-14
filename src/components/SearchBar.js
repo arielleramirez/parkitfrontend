@@ -14,7 +14,17 @@ import {
 import L from "leaflet";
 import ReservationsList from "./ReservationsList";
 import Filter from "./Filter";
-import CurrentLocationResults from "./CurrentLocationResults";
+import Background from "../img/background.jpg";
+
+const sectionStyle = {
+  width: "100%",
+  height: "150vh",
+  opacity: 0.5,
+  position: "absolute",
+  backgroundPosition: "center",
+  backgroundSize: "cover",
+  backgroundImage: `url(${Background})`
+};
 
 let myIcon = L.icon({
   iconUrl: usermarker,

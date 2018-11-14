@@ -27,30 +27,6 @@ class Profile extends Component {
       });
   };
 
-  // handleFormSubmit = (e, parkingInfo) => {
-  //   console.log(e);
-  //   console.log(parkingInfo);
-  //   fetch("", {
-  //     method: "POST",
-  //     headers: {
-  //       Accept: "Application/json",
-  //       "Content-Type": "Application/json"
-  //     },
-  //     body: JSON.stringify({
-  //       user_id: 2,
-  //       name: parkingInfo.location_name,
-  //       address: parkingInfo.address
-  //     })
-  //   })
-  //     .then(res => res.json())
-  //     .then(reservation =>
-  //       this.setState(prev => ({
-  //         userReservations: [...prev.userReservations, reservation]
-  //       }))
-  //     )
-  //     .then(console.log);
-  // };
-
   handleShowDetail = reservation => {
     this.setState({
       showDetail: true,
@@ -65,41 +41,6 @@ class Profile extends Component {
     }));
   };
 
-  // handleDelete = reservation => {
-  //   console.log(reservation);
-  //   let position;
-  //   fetch("", {
-  //     method: "DELETE",
-  //     headers: {
-  //       "Access-Control-Allow-Origin": "http://localhost:3002"
-  //     }
-  //   })
-  //     .then(response => response.json())
-  //     .then(console.log);
-  //
-  //   if (reservation.user_id === this.props.currentUser.id) {
-  //     position = this.state.userReservations.indexOf(reservation);
-  //     this.setState({
-  //       userReservations: [
-  //         ...this.state.userReservations.slice(0, position),
-  //         ...this.state.userReservations.slice(position + 1)
-  //       ]
-  //     });
-  //   } else {
-  //     position = this.state.userHistory.indexOf(reservation);
-  //     // debugger
-  //     console.log([...this.state.userHistory.slice(position + 1)]);
-  //     this.setState({
-  //       userHistory: [
-  //         ...this.state.userHistory.slice(0, position),
-  //         ...this.state.userHistory.slice(position + 1)
-  //       ]
-  //     });
-  //   }
-  // .then(collections => collections.find(collection => collection))
-  // console.log(reservation);
-
-  // };
   handleCancel = id => {
     let reservationsToKeep = this.state.userReservations.filter(reservation => {
       return reservation.id != id;
@@ -138,13 +79,23 @@ class Profile extends Component {
           handleProfile={this.handleProfile}
           handleMainPage={this.handleMainPage}
         />
-        <Button onClick={this.handleReservation}>Your Reservations</Button>
-        <Button onClick={this.handleAccountEdit}>Edit Account</Button>
+        <Button
+          style={{
+            paddingLeft: 50,
+            paddingRight: 50,
+            paddingTop: 20,
+            paddingBottom: 20,
+            marginLeft: "45%",
+            marginTop: "5%"
+          }}
+          onClick={this.handleReservation}
+        >
+          Your Reservations
+        </Button>
         <ReservationsList
           userReservations={this.state.userReservations}
           handleCancel={this.handleCancel}
         />
-        <FormComponent />
       </div>
     );
   }
@@ -154,3 +105,5 @@ export default connect(
   state => ({ currentUser: state.currentUser }),
   { createUser }
 )(Profile);
+
+// <Button onClick={this.handleAccountEdit}>Edit Account</Button>

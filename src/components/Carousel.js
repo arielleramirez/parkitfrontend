@@ -21,7 +21,7 @@ const Carousel = () => {
       {...properties}
       style={{
         width: 550,
-        marginLeft: 450,
+        marginLeft: "25%",
         marginTop: 50,
         width: 1000,
         outline: "none"

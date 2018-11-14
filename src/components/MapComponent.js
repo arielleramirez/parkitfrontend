@@ -4,7 +4,7 @@ import React, { Component, Fragment } from "react";
 import { Search, Grid, Header, Segment } from "semantic-ui-react";
 import usermarker from "../img/u.png";
 import parkingspacemarker from "../img/marker.png";
-import Background from "../img/background3.jpg";
+import Background from "../img/background.jpg";
 import { Card, Button } from "semantic-ui-react";
 
 import {
@@ -231,6 +231,7 @@ export default class MapComponent extends Component {
     return (
       <Fragment>
         <Search
+          style={{ marginLeft: "44%", zIndex: 99 }}
           loading={isLoading}
           onResultSelect={this.handleResultSelect}
           onSearchChange={_.debounce(this.handleSearchChange, 500, {
@@ -245,7 +246,7 @@ export default class MapComponent extends Component {
           className="box"
           style={{
             height: 700,
-            width: 1100,
+            width: 110,
             backgroundColor: "white",
             opacity: 0.85,
             marginLeft: 350,
@@ -257,8 +258,8 @@ export default class MapComponent extends Component {
             style={{
               zIndex: 99,
               opacity: 1,
-              marginTop: 10,
-              marginRight: 600
+              marginTop: "10%",
+              marginRight: " 35%"
             }}
           >
             <Map className="map1" center={this.state.position} zoom={16}>

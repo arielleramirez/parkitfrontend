@@ -19,6 +19,7 @@ import SearchBar from "./SearchBar";
 import CurrentLocation from "./CurrentLocation";
 import { Image } from "semantic-ui-react";
 import Search from "./Search";
+import Profile from "./Profile";
 
 const styles = {
   list: {
@@ -32,7 +33,12 @@ const styles = {
 class TemporaryDrawer extends React.Component {
   state = {
     right: false,
-    target: []
+    target: [],
+    filter: false,
+    addres: false,
+    garage: false,
+    location: false,
+    profile: false
   };
 
   toggleDrawer = (side, open) => () => {
@@ -62,7 +68,6 @@ class TemporaryDrawer extends React.Component {
       target: e.target
     });
   };
-
   render() {
     console.log(this.state.target.innerText);
     const { classes } = this.props;
@@ -107,12 +112,6 @@ class TemporaryDrawer extends React.Component {
       </div>
     );
 
-    // const options = [
-    //   { key: "user", text: "Profile", icon: "user" },
-    //   { key: "mainpage", text: "Main Page", icon: "home" },
-    //   { key: "filter", text: "Filter By State", icon: "home" },
-    //   { key: "sign-out", text: "Sign Out", icon: "sign out" }
-    // ];
     return (
       <Fragment>
         <div className="mainbar">

@@ -84,6 +84,36 @@ const source = [
     title: "Time Square, Manhattan, NY 10036",
     lat: "40.759770",
     lng: "-73.987970"
+  },
+  {
+    title: "11 Broadway New York New York 10004",
+    lat: "40.705368",
+    lng: "-74.013850"
+  },
+  {
+    title: "Central Park",
+    lat: "40.782864",
+    lng: "-73.965355"
+  },
+  {
+    title: "Lincoln Center Plaza, New York, NY 10023",
+    lat: "40.773540",
+    lng: "-73.984436"
+  },
+  {
+    title: "One World Trade Center, 285 Fulton St, New York, NY 10007",
+    lat: "40.712993",
+    lng: "-74.013224"
+  },
+  {
+    title: "Pennsylvania Station, New York, NY 10119",
+    lat: "40.750258",
+    lng: "-73.992813"
+  },
+  {
+    title: "Rockefeller Center, 45 Rockefeller Plaza, New York, NY 10111",
+    lat: "40.758990",
+    lng: "-73.979030"
   }
 ];
 
@@ -115,7 +145,7 @@ export default class MapComponent extends Component {
   // };
 
   onReserve = cord => {
-    fetch(`http://localhost:3001/api/v1/reservations`, {
+    fetch(`http://localhost:3002/api/v1/reservations`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -134,7 +164,6 @@ export default class MapComponent extends Component {
     })
       .then(response => response.json())
       .then(data => {
-        debugger;
         this.setState({
           reserveSpot: data,
           isReserved: true
@@ -142,9 +171,7 @@ export default class MapComponent extends Component {
       });
   };
   renderEachCoordinatePosition = stateObj => {
-    fetch(
-      "http://api.parkwhiz.com/parking/reservation/?key=0255bd8ed81adc912b5d2d720e8dd777e901d81d&page=3&per_page=2"
-    )
+    fetch("http://localhost:3005/spots")
       .then(response => response.json())
       .then(coords => {
         this.setState({
@@ -153,6 +180,7 @@ export default class MapComponent extends Component {
         });
       });
     return this.state.coords.map(cord => {
+      console.log(cord);
       var newPosition = [cord.lat, cord.lng];
       const { isReserved } = this.state;
 

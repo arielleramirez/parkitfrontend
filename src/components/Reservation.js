@@ -22,7 +22,7 @@ class Reservations extends Component {
   state = {};
   onCancel = event => {
     console.log(event.target);
-    fetch(`http://localhost:3001/api/v1/reservations/${this.props.id}`, {
+    fetch(`http://localhost:3002/api/v1/reservations/${this.props.id}`, {
       method: "DELETE"
     });
     this.props.handleCancel(this.props.id);

@@ -8,7 +8,14 @@ class FilterResults extends Component {
   render() {
     console.log(this.props.searchResults);
     return (
-      <Card.Group style={{ marginTop: 20, marginBottom: 20 }}>
+      <Card.Group
+        style={{
+          marginTop: 20,
+          marginBottom: 20,
+          marginRight: " 16% ",
+          marginLeft: "2%"
+        }}
+      >
         {this.props.searchResults.map((parkingspace, idx) => {
           if (this.props.filter === parkingspace.state) {
             return (

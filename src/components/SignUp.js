@@ -40,7 +40,7 @@ class SignUp extends Component {
     event.preventDefault();
     console.log(this.state);
 
-    fetch("http://localhost:3001/api/v1/users", {
+    fetch("http://localhost:3002/api/v1/users", {
       method: "POST",
       headers: {
         "Content-Type": "Application/json"
@@ -85,7 +85,7 @@ class SignUp extends Component {
             paddingBottom: 15
           }}
         >
-          SignUp
+          Sign up
         </Button>
         <Modal
           size="tiny"
@@ -152,7 +152,7 @@ class SignUp extends Component {
                     marginLeft: 130
                   }}
                 >
-                  SignUp
+                  Sign up
                 </Button>
               </Form>
             </Modal.Description>

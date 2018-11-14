@@ -30,7 +30,7 @@ class Login extends Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    fetch("http://localhost:3001/api/v1/users")
+    fetch("http://localhost:3002/api/v1/users")
       .then(response => response.json())
       .then(allUsers => {
         const user = allUsers.find(user => {
@@ -71,7 +71,7 @@ class Login extends Component {
             paddingBottom: 15
           }}
         >
-          Login
+          Log in
         </Button>
         <Modal
           size="tiny"
@@ -88,7 +88,7 @@ class Login extends Component {
           />
           <Modal.Header>
             <div style={{ marginLeft: 210, marginTop: 20, fontSize: 35 }}>
-              Login
+              Log in
             </div>
             <div style={{ marginLeft: 205, marginTop: 20, fontSize: 12 }}>
               A new way to park

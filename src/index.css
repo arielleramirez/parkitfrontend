@@ -317,6 +317,7 @@ h2 {
 #sideBar .toggle-btn {
   width: 100%;
   margin-left: 87%;
+  /* margin-left: 79%; */
   text-align: center;
   line-height: 75px;
   font-size: 30px;

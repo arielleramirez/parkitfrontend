@@ -56,9 +56,7 @@ class Filter extends Component {
     );
   };
   componentDidMount() {
-    fetch(
-      "http://api.parkwhiz.com/parking/reservation/?key=0255bd8ed81adc912b5d2d720e8dd777e901d81d"
-    )
+    fetch("http://localhost:3005/spots")
       .then(response => response.json())
       .then(coordData => {
         this.setState({

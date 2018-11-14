@@ -52,9 +52,7 @@ class CurrentLocation extends Component {
   };
 
   componentDidMount() {
-    fetch(
-      "http://api.parkwhiz.com/parking/reservation/?key=0255bd8ed81adc912b5d2d720e8dd777e901d81d"
-    )
+    fetch("http://localhost:3005/spots")
       .then(response => response.json())
       .then(coords => {
         this.setState({
@@ -91,7 +89,7 @@ class CurrentLocation extends Component {
   }
 
   onReserve = cord => {
-    fetch(`http://localhost:3001/api/v1/reservations`, {
+    fetch(`http://localhost:3002/api/v1/reservations`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

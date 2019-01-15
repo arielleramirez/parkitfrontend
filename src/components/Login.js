@@ -108,14 +108,11 @@ class Login extends Component {
                   type="submit"
                   fullWidth
                   variant="contained"
-                  className="submit"
+                  id="submit"
                   active={active}
                   style={{
                     color: "white",
-                    paddingLeft: 100,
-                    paddingRight: 100,
-                    backgroundColor: active ? "#e55b00" : "#16203d",
-                    marginLeft: 130
+                    backgroundColor: active ? "#e55b00" : "#16203d"
                   }}
                 >
                   Log In

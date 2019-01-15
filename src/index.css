@@ -184,12 +184,15 @@ h6 {
   text-align: center;
   margin-top: 1%;
   font-size: 1.5vw;
+  margin-left: 3%;
 }
 
 .modalTitle {
   text-align: center;
   margin-top: 2%;
   font-size: 4vw;
+  margin-left: 3%;
+  padding-bottom: 2%;
 }
 
 .modal {
@@ -231,7 +234,7 @@ h6 {
 }
 
 #logInButton {
-  padding-left: 3%;
+  padding-left: 4%;
   padding-right: 3%;
   padding-top: 0.75%;
   padding-bottom: 0.75%;
@@ -291,8 +294,10 @@ h3 {
   background-color: #1c2c5b;
   font-family: "Niramit", sans-serif;
 }
-.submit {
-  margin: 200px;
+#submit {
+  margin-left: 23%;
+  padding-left: 10vw;
+  padding-right: 10vw;
   color: #080e20;
   font-family: "Niramit", sans-serif;
 }

@@ -97,9 +97,9 @@ class Login extends Component {
                 <Form.Field>
                   <input
                     onChange={this.handleOnChange}
+                    value={this.state.password}
                     placeholder="Password"
                     name="password"
-                    value={this.state.password}
                     type="password"
                   />
                 </Form.Field>

@@ -199,6 +199,14 @@ h6 {
   max-width: 50%;
   max-height: 60%;
 }
+
+#submit {
+  margin-left: 23%;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  color: #080e20;
+  font-family: "Niramit", sans-serif;
+}
 /* .subtitle2 .banner {
   text-decoration: none;
   font-size: 18px;
@@ -294,13 +302,7 @@ h3 {
   background-color: #1c2c5b;
   font-family: "Niramit", sans-serif;
 }
-#submit {
-  margin-left: 23%;
-  padding-left: 10vw;
-  padding-right: 10vw;
-  color: #080e20;
-  font-family: "Niramit", sans-serif;
-}
+
 .log {
   margin: 0 135px 20px 135px;
   color: white;

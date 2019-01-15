@@ -81,24 +81,21 @@ class SignUp extends Component {
         </Button>
         <Modal
           size="tiny"
+          className="modal"
           dimmer={dimmer}
           open={open}
           onClose={this.close}
           // onSubmit={this.handleSubmit}
         >
           <Image
-            style={{ marginLeft: 225, marginTop: 20 }}
             wrapped
+            id="modalImage"
             size="medium"
             src={require("../img/signinMarker.png")}
           />
           <Modal.Header>
-            <div style={{ marginLeft: 200, marginTop: 20, fontSize: 35 }}>
-              SignUp.
-            </div>
-            <div style={{ marginLeft: 205, marginTop: 20, fontSize: 12 }}>
-              A new way to park
-            </div>
+            <div className="modalTitle">SignUp.</div>
+            <div className="modalBlurb">A new way to park</div>
           </Modal.Header>
           <Modal.Content>
             <Modal.Description>
@@ -133,15 +130,12 @@ class SignUp extends Component {
                   type="submit"
                   fullWidth
                   variant="contained"
-                  className="submit"
+                  id="submit"
                   name="submit"
                   active={active}
                   style={{
                     color: "white",
-                    paddingLeft: 100,
-                    paddingRight: 100,
-                    backgroundColor: active ? "#e55b00" : "#16203d",
-                    marginLeft: 130
+                    backgroundColor: active ? "#e55b00" : "#16203d"
                   }}
                 >
                   Sign up

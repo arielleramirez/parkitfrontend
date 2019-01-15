@@ -52,7 +52,7 @@ class Login extends Component {
     const { active } = this.state;
     const { redirect } = this.state;
     if (redirect) {
-      return <Redirect to="/mainpage" />;
+      return <Redirect to="/profile" />;
     }
 
     return (
@@ -60,18 +60,10 @@ class Login extends Component {
         <Button
           inverted
           color="white"
-          className="logInButton"
+          id="logInButton"
           onClick={this.show(true)}
-          style={{
-            marginLeft: 5,
-            textDecoration: "none",
-            paddingLeft: 40,
-            paddingRight: 40,
-            paddingTop: 15,
-            paddingBottom: 15
-          }}
         >
-          Log in
+          <h3>Log in</h3>
         </Button>
         <Modal
           size="tiny"
@@ -81,18 +73,14 @@ class Login extends Component {
           // onSubmit={this.handleSubmit}
         >
           <Image
-            style={{ marginLeft: 225, marginTop: 20 }}
+            className="modalImage"
             wrapped
             size="medium"
             src={require("../img/signinMarker.png")}
           />
           <Modal.Header>
-            <div style={{ marginLeft: 210, marginTop: 20, fontSize: 35 }}>
-              Log in
-            </div>
-            <div style={{ marginLeft: 205, marginTop: 20, fontSize: 12 }}>
-              A new way to park
-            </div>
+            <div className="modalTitle">Log in</div>
+            <div className="modalBlurb">A new way to park</div>
           </Modal.Header>
           <Modal.Content>
             <Modal.Description>

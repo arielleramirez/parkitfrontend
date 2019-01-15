@@ -1,3 +1,7 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 body {
   margin: 0;
   padding: 0;
@@ -13,31 +17,193 @@ code {
     monospace;
 }
 
+/* Start of Homepage */
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-container > div {
+  width: 100%;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+}
+
+.pageTop {
+  background-image: url("./img/background1.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+
 .title {
   color: white;
   text-decoration: none;
-  font-size: 175px;
+  font-size: 10vw;
   text-align: center;
-  margin-top: 350px;
+  margin-top: 22%;
   font-family: "Noto Serif", serif;
   color: white;
 }
 
-.banner {
+hr {
+  margin-top: 5%;
+  margin-left: 15%;
+  margin-right: 15%;
+  border: 0.1vw solid #863a58;
+}
+.subtitle {
+  text-align: center;
+  margin-top: 5%;
+  color: #863a58;
+  font-size: 3.5vw;
+}
+
+.column1 {
+  margin-left: 15%;
+  color: #863a58;
+}
+
+.searchImage {
+  margin-left: 200%;
+}
+
+.searchTitle {
+  margin-left: 160%;
+  font-size: 2.5vw;
+}
+
+.searchParagraph {
+  margin-left: 5%;
+  font-size: 1.5vw;
+  width: 550%;
+}
+
+.column2 {
+  margin-left: 25%;
+  color: #863a58;
+}
+
+.markerImage {
+  margin-left: 15%;
+}
+
+.markerTitle {
+  margin-left: -35%;
+  font-size: 2.5vw;
+}
+
+.markerParagraph {
+  margin-left: -200%;
+  font-size: 1.5vw;
+  width: 550%;
+}
+
+.column3 {
+  margin-left: 25%;
+  color: #863a58;
+}
+
+.checkmarkImage {
+  margin-left: -190%;
+}
+
+.checkmarkTitle {
+  margin-left: -400%;
+  font-size: 2.5vw;
+}
+
+.checkmarkParagraph {
+  margin-left: -400%;
+  font-size: 1.5vw;
+  width: 550%;
+}
+
+.subtitle2 {
+  padding-top: 5%;
+  text-align: center;
+  color: #863a58;
+  font-size: 3.5vw;
+}
+
+.cardImage {
+  width: 50%;
+  height: 35%;
+  margin-left: 26%;
+}
+
+h4 {
+  font-size: 3vw;
+}
+
+h5 {
+  font-size: 2.5vw;
+}
+
+h6 {
+  font-size: 2vw;
+}
+
+.subtitle3 {
+  padding-top: 5%;
+  text-align: center;
+  color: #863a58;
+  font-size: 3.5vw;
+}
+
+.applebtn {
+  width: 20%;
+  float: right;
+  padding-bottom: 20px;
+}
+
+.googlebtn {
+  width: 20%;
+  float: right;
+  margin-right: 30%;
+  padding-bottom: 20px;
+}
+
+.footer {
+  margin: 10px;
+}
+
+/* end of homepage */
+
+.modalImage {
+  margin-top: 5%;
+  margin-left: 41%;
+  margin-right: 55%;
+}
+
+.modalBlurb {
+  text-align: center;
+  margin-top: 1%;
+  font-size: 1.5vw;
+}
+
+.modalTitle {
+  text-align: center;
+  margin-top: 2%;
+  font-size: 4vw;
+}
+/* .subtitle2 .banner {
   text-decoration: none;
   font-size: 18px;
   float: left;
   padding: 10px 35px;
   color: white;
   font-family: "Noto Serif", serif;
-}
+} */
 
 .search-sides {
   padding: 0 250px 0 250px;
 }
 
 .logoutBtn {
-  padding: 10px 0 0 1110px;
+  padding: 20px;
 }
 
 .myRecipeBtn {
@@ -57,20 +223,28 @@ code {
   text-align: center;
 }
 
-/* h1.title {
-  margin-top: 250px;
-} */
-
-.logInButton {
+#logInButton {
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top: 0.75%;
+  padding-bottom: 0.75%;
   position: absolute;
-  top: 2%;
-  left: 81%;
+  top: 5%;
+  left: 78%;
 }
 
-.signUpButton {
+#signUpButton {
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top: 0.75%;
+  padding-bottom: 0.75%;
   position: absolute;
-  top: 2%;
-  left: 90%;
+  top: 5%;
+  left: 88%;
+}
+
+h3 {
+  font-size: 1.3vw;
 }
 
 .main-page-search {
@@ -147,16 +321,6 @@ code {
   background-size: cover;
 }
 
-hr {
-  margin: 500px 200px 0 200px;
-  border: 1px solid #863a58;
-}
-.subtitle {
-  text-align: center;
-  margin: 50px 0;
-  color: #863a58;
-}
-
 .subtitle1 {
   text-align: center;
   margin: 100px 0 0 0;
@@ -199,12 +363,11 @@ h2 {
 .map1 {
   height: 60vh;
   width: 95vh;
-  margin-top: 20%;
+  margin-top: 1%;
   margin-bottom: 25%;
-  margin-right: 15%;
-  margin-left: 95%;
+  margin-right: 35%;
+  margin-left: 4%;
   z-index: -5;
-  opacity: 1;
 }
 
 .map3 {
@@ -215,7 +378,6 @@ h2 {
   margin-right: 35%;
   margin-left: 4%;
   z-index: -5;
-  opacity: 1;
 }
 
 /* .map2 {

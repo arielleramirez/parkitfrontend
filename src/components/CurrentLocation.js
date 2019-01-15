@@ -11,21 +11,6 @@ import {
 } from "react-leaflet";
 import L from "leaflet";
 import { Card, Button } from "semantic-ui-react";
-import Background from "../img/background.jpg";
-import Markers from "./Markers";
-
-const sectionStyle = {
-  width: "100%",
-  height: "100vh",
-  position: "absolute",
-  backgroundPosition: "center",
-  backgroundSize: "cover",
-  backgroundColor: "white",
-  backgroundImage: `url(${Background})`,
-  zIndex: -9,
-  position: "relative",
-  opacity: 0.75
-};
 
 let myIcon1 = L.icon({
   iconUrl: usermarker,
@@ -167,43 +152,39 @@ class CurrentLocation extends Component {
 
     return (
       <Fragment>
-        <div style={sectionStyle}>
+        <div
+          className="box"
+          style={{
+            height: "50%",
+            width: "65%",
+            backgroundColor: "white",
+            marginLeft: "17%",
+            marginTop: "10%"
+          }}
+        >
           <div
-            className="box"
+            className="map2"
             style={{
-              height: "75%",
-              width: "65%",
-              backgroundColor: "white",
-              opacity: 0.85,
-              marginLeft: "17%",
-              marginTop: "5%"
+              zIndex: 99,
+              marginTop: "5%",
+              marginRight: "35%",
+              marginLeft: "8%"
             }}
           >
-            <div
-              className="map2"
-              style={{
-                zIndex: 99,
-                opacity: 1,
-                marginTop: "5%",
-                marginRight: "35%",
-                marginLeft: "8%"
-              }}
-            >
-              <Map className="map3" center={position} zoom={this.state.zoom}>
-                <TileLayer
-                  attribution="&copy; <a href=&quot;http://www.openstreetmap.org/copyright&quot;>OpenStreetMap</a> &copy; <a href=&quot;https://carto.com/attributions&quot;>CARTO</a>"
-                  url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
-                />
-                {this.state.haveUserLocation ? (
-                  <Marker position={position} icon={myIcon}>
-                    <Popup>Your current location</Popup>
-                  </Marker>
-                ) : (
-                  ""
-                )}
-                {this.renderEachCoordinatePosition()}
-              </Map>
-            </div>
+            <Map className="map3" center={position} zoom={this.state.zoom}>
+              <TileLayer
+                attribution="&copy; <a href=&quot;http://www.openstreetmap.org/copyright&quot;>OpenStreetMap</a> &copy; <a href=&quot;https://carto.com/attributions&quot;>CARTO</a>"
+                url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+              />
+              {this.state.haveUserLocation ? (
+                <Marker position={position} icon={myIcon}>
+                  <Popup>Your current location</Popup>
+                </Marker>
+              ) : (
+                ""
+              )}
+              {this.renderEachCoordinatePosition()}
+            </Map>
           </div>
         </div>
       </Fragment>

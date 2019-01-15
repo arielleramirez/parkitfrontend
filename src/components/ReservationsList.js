@@ -1,6 +1,5 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import Reservation from "./Reservation";
-import CurrentLocation from "./CurrentLocation";
 import { Card } from "semantic-ui-react";
 
 class ReservationsList extends Component {

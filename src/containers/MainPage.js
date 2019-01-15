@@ -1,14 +1,17 @@
 import React, { Component } from "react";
-import SearchBar from "../components/SearchBar";
-import SearchResults from "../components/SearchResults";
 import { connect } from "react-redux";
 import NavBar from "../components/NavBar";
 import { createUser } from "../actions/SignUp";
-import { Container } from "semantic-ui-react";
-import { Grid } from "semantic-ui-react";
-import MapComponent from "../components/MapComponent";
-import Filter from "../components/Filter";
-import CurrentLocation from "../components/CurrentLocation";
+import Background from "../img/background.jpg";
+
+const sectionStyle = {
+  width: "100%",
+  height: "150vh",
+  position: "absolute",
+  backgroundPosition: "center",
+  backgroundSize: "cover",
+  backgroundImage: `url(${Background})`
+};
 
 class MainPage extends Component {
   state = {
@@ -59,11 +62,13 @@ class MainPage extends Component {
     console.log(this.props);
     return (
       <React.Fragment>
-        <NavBar
-          handleLogOut={this.handleLogOut}
-          handleProfile={this.handleProfile}
-          handleMainPage={this.handleMainPage}
-        />
+        <div style={sectionStyle}>
+          <NavBar
+            handleLogOut={this.handleLogOut}
+            handleProfile={this.handleProfile}
+            handleMainPage={this.handleMainPage}
+          />
+        </div>
       </React.Fragment>
     );
   }

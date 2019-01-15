@@ -32,13 +32,7 @@ const styles = {
 
 class TemporaryDrawer extends React.Component {
   state = {
-    right: false,
-    target: [],
-    filter: false,
-    addres: false,
-    garage: false,
-    location: false,
-    profile: false
+    target: []
   };
 
   toggleDrawer = (side, open) => () => {
@@ -73,8 +67,8 @@ class TemporaryDrawer extends React.Component {
     const { classes } = this.props;
 
     const sideList = (
-      <div className={classes.list} onClick={this.handleChange}>
-        <List>
+      <div className={classes.list}>
+        <List onClick={this.handleChange}>
           {[
             "Profile",
             "Filter By State",
@@ -95,7 +89,7 @@ class TemporaryDrawer extends React.Component {
           ))}
         </List>
         <Divider />
-        <List>
+        <List onClick={this.handleChange}>
           {["LogOut"].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>

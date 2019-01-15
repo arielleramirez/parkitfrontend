@@ -1,16 +1,7 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { Card, Button } from "semantic-ui-react";
-import PropTypes from "prop-types";
 import usermarker from "../img/u.png";
-import parkingspacemarker from "../img/marker.png";
-import {
-  LayersControl,
-  BaseLayer,
-  Map,
-  TileLayer,
-  Marker,
-  Popup
-} from "react-leaflet";
+import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 
 let myIcon = L.icon({

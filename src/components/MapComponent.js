@@ -273,21 +273,20 @@ export default class MapComponent extends Component {
         <div
           className="box"
           style={{
-            height: 700,
-            width: 110,
+            height: "50%",
+            width: "65%",
             backgroundColor: "white",
-            opacity: 0.85,
-            marginLeft: 350,
-            marginTop: 150
+            marginLeft: "17%",
+            marginTop: "10%"
           }}
         >
           <div
             className="map2"
             style={{
               zIndex: 99,
-              opacity: 1,
-              marginTop: "10%",
-              marginRight: " 35%"
+              marginTop: "5%",
+              marginRight: "35%",
+              marginLeft: "8%"
             }}
           >
             <Map className="map1" center={this.state.position} zoom={16}>

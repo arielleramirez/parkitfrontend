@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Grid, Button } from "semantic-ui-react";
+import { Button } from "semantic-ui-react";
 import NavBar from "./NavBar";
 import { connect } from "react-redux";
 import { createUser } from "../actions/SignUp";

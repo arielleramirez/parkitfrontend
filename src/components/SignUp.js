@@ -66,7 +66,7 @@ class SignUp extends Component {
     const { active } = this.state;
     const { redirect } = this.state;
     if (redirect) {
-      return <Redirect to="/mainpage" />;
+      return <Redirect to="/profile" />;
     }
 
     return (
@@ -74,18 +74,10 @@ class SignUp extends Component {
         <Button
           inverted
           color="white"
-          className="logInButton"
+          id="signUpButton"
           onClick={this.show(true)}
-          style={{
-            marginLeft: 130,
-            textDecoration: "none",
-            paddingLeft: 40,
-            paddingRight: 40,
-            paddingTop: 15,
-            paddingBottom: 15
-          }}
         >
-          Sign up
+          <h3>Sign up</h3>
         </Button>
         <Modal
           size="tiny"

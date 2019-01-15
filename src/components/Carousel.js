@@ -17,136 +17,72 @@ const properties = {
 
 const Carousel = () => {
   return (
-    <Slide
-      {...properties}
-      style={{
-        width: 550,
-        marginLeft: "25%",
-        marginTop: 50,
-        width: 1000,
-        outline: "none"
-      }}
-    >
-      <div className="each-slide">
-        <div
-          style={{
-            height: 500
-          }}
-        >
-          <Card
-            style={{
-              height: 500
-            }}
-          >
-            <Image
-              style={{ width: 700, height: 400, marginLeft: 150 }}
-              src={background1}
-            />
-            <Card.Content>
-              <Card.Header>Battery Parking Garage</Card.Header>
-              <Card.Meta>
-                <span className="date">$35</span>
-              </Card.Meta>
-              <Card.Description>
-                80 Greenwich St, New York, NY 10006
-              </Card.Description>
-            </Card.Content>
-            <Card.Content extra>
-              <a>
-                <Icon name="user" />
-                22 Friends
-              </a>
-            </Card.Content>
-          </Card>
-        </div>
-      </div>
-      <div className="each-slide">
-        <div
-          style={{
-            height: 500
-          }}
-        >
-          <Card
-            style={{
-              height: 500
-            }}
-          >
-            <Image
-              style={{ width: 700, height: 400, marginLeft: 150 }}
-              src={background2}
-            />
-            <Card.Content>
-              <Card.Header>iPark</Card.Header>
-              <Card.Meta>
-                <span className="date">$50 a Day</span>
-              </Card.Meta>
-              <Card.Description>
-                14-26 S William St, New York, NY 10004
-              </Card.Description>
-            </Card.Content>
-            <Card.Content extra>
-              <a>
-                <Icon name="user" />
-                22 Friends
-              </a>
-            </Card.Content>
-          </Card>
-        </div>
-      </div>
-      <div className="each-slide">
-        <Card
-          style={{
-            height: 500
-          }}
-        >
-          <Image
-            style={{ width: 700, height: 400, marginLeft: 150 }}
-            src={background3}
-          />
-          <Card.Content>
-            <Card.Header>Icon Parking</Card.Header>
-            <Card.Meta>
-              <span className="date">$100 a day</span>
-            </Card.Meta>
-            <Card.Description>
-              14-26 S William St, New York, NY 10004
-            </Card.Description>
-          </Card.Content>
-          <Card.Content extra>
-            <a>
-              <Icon name="user" />
-              22 Friends
-            </a>
-          </Card.Content>
-        </Card>
-      </div>
-      <div className="each-slide">
-        <Card
-          style={{
-            height: 500
-          }}
-        >
-          <Image
-            style={{ width: 700, height: 400, marginLeft: 150 }}
-            src={background4}
-          />
-          <Card.Content>
-            <Card.Header>Quik Park</Card.Header>
-            <Card.Meta>
-              <span className="date">$24 a day</span>
-            </Card.Meta>
-            <Card.Description>
-              1 New York Plz, New York, NY 10004
-            </Card.Description>
-          </Card.Content>
-          <Card.Content extra>
-            <a>
-              <Icon name="user" />
-              22 Friends
-            </a>
-          </Card.Content>
-        </Card>
-      </div>
+    <Slide>
+      <Card>
+        <Image className="cardImage" src={background1} />
+        <Card.Content>
+          <Card.Header>
+            <h4>Battery Parking Garage</h4>
+          </Card.Header>
+          <Card.Meta>
+            <h5>$50/day</h5>
+          </Card.Meta>
+          <Card.Description>
+            <h6>80 Greenwich St, New York, NY 10006</h6>
+          </Card.Description>
+        </Card.Content>
+      </Card>
+
+      <Card>
+        <Image className="cardImage" src={background2} />
+        <Card.Content>
+          <Card.Header>
+            <h4>iPark</h4>
+          </Card.Header>
+          <Card.Meta>
+            <span>
+              <h5>$50/day</h5>
+            </span>
+          </Card.Meta>
+          <Card.Description>
+            <h6>14-26 S William St, New York, NY 10004</h6>
+          </Card.Description>
+        </Card.Content>
+      </Card>
+
+      <Card>
+        <Image className="cardImage" src={background3} />
+        <Card.Content>
+          <Card.Header>
+            <h4>Icon Parking</h4>
+          </Card.Header>
+          <Card.Meta>
+            <span>
+              <h5>$100/day</h5>
+            </span>
+          </Card.Meta>
+          <Card.Description className="des">
+            <h6>14-26 S William St, New York, NY 10004</h6>
+          </Card.Description>
+        </Card.Content>
+      </Card>
+
+      <Card>
+        <Image className="cardImage" src={background4} />
+        <Card.Content>
+          <Card.Header>
+            <h4>Quik Park</h4>
+          </Card.Header>
+          <Card.Meta>
+            <span>
+              <h5>$24 a day</h5>
+            </span>
+          </Card.Meta>
+          <Card.Description>
+            <h6>1 New York Plz, New York, NY 10004</h6>
+          </Card.Description>
+        </Card.Content>
+      </Card>
     </Slide>
   );
 };

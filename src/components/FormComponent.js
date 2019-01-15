@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Input, Button } from "semantic-ui-react";
+import { Form, Button } from "semantic-ui-react";
 const Cloud_Url = "https://api.cloudinary.com/v1_1/oliviatian/upload";
 const Preset = "zuk87vgw";
 

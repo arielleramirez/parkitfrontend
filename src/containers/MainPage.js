@@ -27,14 +27,6 @@ class MainPage extends Component {
       searchBar: input
     });
   };
-  //
-  // componentDidMount() {
-  //   fetch(`https://waze.com/ul?q=66%20Acacia%20Avenue`)
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       console.log(data);
-  //     });
-  // }
 
   handleShowDetail = obj => {
     this.setState({
@@ -78,8 +70,3 @@ export default connect(
   state => ({ currentUser: state.currentUser }),
   { createUser }
 )(MainPage);
-
-// <SearchBar
-//   handleSubmit={this.handleSubmit}
-//   handleChange={this.handleChange}
-// />

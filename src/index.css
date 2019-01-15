@@ -171,6 +171,7 @@ h6 {
 }
 
 /* end of homepage */
+/* state of modal styling */
 
 #modalImage {
   margin-top: 5%;
@@ -207,14 +208,48 @@ h6 {
   color: #080e20;
   font-family: "Niramit", sans-serif;
 }
-/* .subtitle2 .banner {
-  text-decoration: none;
-  font-size: 18px;
-  float: left;
-  padding: 10px 35px;
+
+/* end of modal styling */
+
+/* state of navbar styling */
+
+.banner {
+  padding: 1.5vw;
   color: white;
-  font-family: "Noto Serif", serif;
-} */
+}
+
+.mainbar {
+  background-color: #a5456a;
+  height: 10vh;
+  outline: none;
+  border: none;
+}
+
+#sideBar .toggle-btn span {
+  display: block;
+  width: 4%;
+  height: 5px;
+  background: white;
+  margin: 0.75%;
+  margin-left: 7%;
+}
+
+#sideBar {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+#sideBar .toggle-btn {
+  width: 100%;
+  margin-left: 87%;
+  /* margin-left: 79%; */
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+  position: absolute;
+  padding-bottom: 10px;
+  top: 1%;
+}
 
 .search-sides {
   padding: 0 250px 0 250px;
@@ -242,7 +277,7 @@ h6 {
 }
 
 #logInButton {
-  padding-left: 4%;
+  padding-left: 3%;
   padding-right: 3%;
   padding-top: 0.75%;
   padding-bottom: 0.75%;
@@ -417,13 +452,6 @@ h2 {
   padding: 200px;
 }
 
-.mainbar {
-  background-color: #a5456a;
-  height: 8vh;
-  outline: none;
-  border: none;
-}
-
 .search {
   margin-top: 50px;
 }
@@ -450,54 +478,4 @@ h2 {
 * {
   margin: 0;
   padding: 0;
-}
-/* #sideBar {
-  position: fixed;
-  width: 1px;
-  background: white;
-} */
-
-/* #sideBar.active {
-  left: 0px;
-} */
-
-/* #sideBar ul {
-  border: 2px solid #a5456a;
-  border-radius: 10px;
-} */
-/* #sideBar ul li {
-  color: black;
-  list-style: none;
-  padding: 15px 10px;
-} */
-
-/* #sideBar .toggle-btn {
-  position: absolute;
-  left: 50px;
-  top: 15px;
-} */
-
-#sideBar .toggle-btn span {
-  display: block;
-  width: 40px;
-  height: 5px;
-  background: white;
-  margin: 8px 0px;
-}
-
-#sideBar {
-  display: flex;
-  flex-wrap: nowrap;
-}
-
-#sideBar .toggle-btn {
-  width: 100%;
-  margin-left: 87%;
-  /* margin-left: 79%; */
-  text-align: center;
-  line-height: 75px;
-  font-size: 30px;
-  position: absolute;
-  padding-bottom: 10px;
-  top: 1%;
 }

@@ -67,13 +67,14 @@ class Login extends Component {
         </Button>
         <Modal
           size="tiny"
+          className="modal"
           dimmer={dimmer}
           open={open}
           onClose={this.close}
           // onSubmit={this.handleSubmit}
         >
           <Image
-            className="modalImage"
+            id="modalImage"
             wrapped
             size="medium"
             src={require("../img/signinMarker.png")}

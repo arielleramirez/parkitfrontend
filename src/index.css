@@ -172,10 +172,12 @@ h6 {
 
 /* end of homepage */
 
-.modalImage {
+#modalImage {
   margin-top: 5%;
   margin-left: 41%;
   margin-right: 55%;
+  width: 20%;
+  height: 2%;
 }
 
 .modalBlurb {
@@ -188,6 +190,11 @@ h6 {
   text-align: center;
   margin-top: 2%;
   font-size: 4vw;
+}
+
+.modal {
+  max-width: 50%;
+  max-height: 60%;
 }
 /* .subtitle2 .banner {
   text-decoration: none;

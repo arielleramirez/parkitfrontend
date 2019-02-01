@@ -30,7 +30,7 @@ class Login extends Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    fetch("http://localhost:3002/api/v1/users")
+    fetch("http://localhost:3005/api/v1/users")
       .then(response => response.json())
       .then(allUsers => {
         const user = allUsers.find(user => {
@@ -66,6 +66,7 @@ class Login extends Component {
           <h3>Log in</h3>
         </Button>
         <Modal
+          centered={false}
           size="tiny"
           className="modal"
           dimmer={dimmer}

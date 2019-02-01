@@ -45,7 +45,7 @@ class Filter extends Component {
     );
   };
   componentDidMount() {
-    fetch("http://localhost:3005/spots")
+    fetch("http://localhost:3000/spots")
       .then(response => response.json())
       .then(coordData => {
         this.setState({

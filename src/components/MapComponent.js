@@ -145,7 +145,7 @@ export default class MapComponent extends Component {
   // };
 
   onReserve = cord => {
-    fetch(`http://localhost:3002/api/v1/reservations`, {
+    fetch(`http://localhost:3005/api/v1/reservations`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -171,7 +171,7 @@ export default class MapComponent extends Component {
       });
   };
   renderEachCoordinatePosition = stateObj => {
-    fetch("http://localhost:3005/spots")
+    fetch("http://localhost:3000/spots")
       .then(response => response.json())
       .then(coords => {
         this.setState({

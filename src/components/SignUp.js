@@ -40,7 +40,7 @@ class SignUp extends Component {
     event.preventDefault();
     console.log(this.state);
 
-    fetch("http://localhost:3002/api/v1/users", {
+    fetch("http://localhost:3005/api/v1/users", {
       method: "POST",
       headers: {
         "Content-Type": "Application/json"
@@ -85,6 +85,7 @@ class SignUp extends Component {
           dimmer={dimmer}
           open={open}
           onClose={this.close}
+          centered={false}
           // onSubmit={this.handleSubmit}
         >
           <Image
@@ -99,9 +100,10 @@ class SignUp extends Component {
           </Modal.Header>
           <Modal.Content>
             <Modal.Description>
-              <Form onSubmit={this.handleSubmit}>
+              <Form className="form" onSubmit={this.handleSubmit}>
                 <Form.Field>
                   <input
+                    className="form"
                     value={this.state.username}
                     name="username"
                     onChange={this.handleOnChange}
@@ -110,6 +112,7 @@ class SignUp extends Component {
                 </Form.Field>
                 <Form.Field>
                   <input
+                    className="form"
                     value={this.state.password}
                     onChange={this.handleOnChange}
                     placeholder="Password"
@@ -119,6 +122,7 @@ class SignUp extends Component {
                 </Form.Field>
                 <Form.Field>
                   <input
+                    className="form"
                     value={this.state.email}
                     onChange={this.handleOnChange}
                     placeholder="Email"

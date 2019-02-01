@@ -18,7 +18,7 @@ class Profile extends Component {
   };
 
   handleReservation = event => {
-    fetch("http://localhost:3002/api/v1/reservations")
+    fetch("http://localhost:3005/api/v1/reservations")
       .then(r => r.json())
       .then(resData => {
         this.setState({

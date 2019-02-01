@@ -46,7 +46,7 @@ class SearchBar extends Component {
   };
 
   handleSubmit = event => {
-    fetch("http://localhost:3005/spots")
+    fetch("http://localhost:3000/spots")
       .then(response => response.json())
       .then(spaceData => {
         const space = spaceData.filter(spaced => {

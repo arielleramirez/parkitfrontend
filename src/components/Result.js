@@ -33,7 +33,7 @@ class Result extends Component {
   handleClick = () => this.setState({ isReserved: !this.state.isReserved });
 
   onReserve = event => {
-    fetch(`http://localhost:3002/api/v1/reservations`, {
+    fetch(`http://localhost:3005/api/v1/reservations`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

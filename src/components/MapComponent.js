@@ -232,7 +232,6 @@ export default class MapComponent extends Component {
   };
 
   render() {
-    console.log(this.state.coords);
     const { isLoading, value, results } = this.state;
 
     return (

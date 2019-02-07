@@ -145,25 +145,8 @@ class CurrentLocation extends Component {
 
     return (
       <Fragment>
-        <div
-          className="box"
-          style={{
-            height: "50%",
-            width: "65%",
-            backgroundColor: "white",
-            marginLeft: "17%",
-            marginTop: "10%"
-          }}
-        >
-          <div
-            className="map2"
-            style={{
-              zIndex: 99,
-              marginTop: "5%",
-              marginRight: "35%",
-              marginLeft: "8%"
-            }}
-          >
+        <div id="white-box">
+          <div className="map3">
             <Map className="map3" center={position} zoom={this.state.zoom}>
               <TileLayer
                 attribution="&copy; <a href=&quot;http://www.openstreetmap.org/copyright&quot;>OpenStreetMap</a> &copy; <a href=&quot;https://carto.com/attributions&quot;>CARTO</a>"

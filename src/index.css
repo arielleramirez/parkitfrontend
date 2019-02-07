@@ -386,11 +386,9 @@ h6 {
 .map3 {
   height: 60vh;
   width: 95vh;
-  margin-top: 1%;
-  margin-bottom: 25%;
-  margin-right: 35%;
-  margin-left: 4%;
-  z-index: -5;
+  margin: 30px auto;
+  padding-top: 1.5%;
+  z-index: 1;
 }
 .map2 {
   height: 60vh;

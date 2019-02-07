@@ -24,16 +24,7 @@ class Reservations extends Component {
     console.log(this.props);
     return (
       <Fragment>
-        <Card
-          style={{
-            width: 300,
-            marginLeft: 130,
-            marginRight: 25,
-            marginTop: 50,
-            zIndex: 5,
-            border: 2
-          }}
-        >
+        <Card id="card">
           <div className="maps-container">
             <Map className="map" center={this.props.position} zoom={16}>
               <TileLayer
@@ -45,9 +36,9 @@ class Reservations extends Component {
               </Marker>
             </Map>
           </div>
-          <Card.Content style={{ paddingLeft: 50 }}>
-            <Card.Header>{this.props.name}</Card.Header>
-            <Card.Description>
+          <Card.Content>
+            <Card.Header id="card-header">{this.props.name}</Card.Header>
+            <Card.Description id="card-description">
               {this.props.street}
               <br />
               {this.props.city}
@@ -60,9 +51,7 @@ class Reservations extends Component {
               onClick={this.onCancel}
               id={this.props.id}
               style={{
-                paddingLeft: 80,
-                paddingRight: 80,
-                marginLeft: 5
+                width: "100%"
               }}
             >
               Cancel Reservation

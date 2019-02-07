@@ -65,16 +65,7 @@ class Result extends Component {
 
     return (
       <Fragment>
-        <Card
-          style={{
-            width: 300,
-            marginLeft: 130,
-            marginRight: 25,
-            marginTop: 45,
-            zIndex: 5,
-            border: 2
-          }}
-        >
+        <Card id="card">
           <div className="maps-container">
             <Map className="map" center={this.props.position} zoom={16}>
               <TileLayer
@@ -86,9 +77,11 @@ class Result extends Component {
               </Marker>
             </Map>
           </div>
-          <Card.Content style={{ paddingLeft: 50 }}>
-            <Card.Header>{this.props.location_name}</Card.Header>
-            <Card.Description>
+          <Card.Content>
+            <Card.Header id="card-header">
+              {this.props.location_name}
+            </Card.Header>
+            <Card.Description id="card-description">
               {this.props.address}
               <br />
               {this.props.city}
@@ -98,11 +91,10 @@ class Result extends Component {
           </Card.Content>
           <Card.Content extra>
             <Button
+              id="card-button"
               onClick={this.onReserve}
+              isReserved={isReserved}
               style={{
-                paddingLeft: 80,
-                paddingRight: 80,
-                marginLeft: 35,
                 backgroundColor: isReserved ? "#a5456a" : null,
                 color: isReserved ? "white" : null
               }}

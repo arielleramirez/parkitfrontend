@@ -82,10 +82,11 @@ class Profile extends Component {
           style={{
             paddingLeft: 50,
             paddingRight: 50,
-            paddingTop: 20,
-            paddingBottom: 20,
+            paddingTop: 10,
+            paddingBottom: 10,
             marginLeft: 300,
-            marginTop: 20
+            marginTop: 20,
+            marginBottom: 20
           }}
           onClick={this.handleReservation}
         >

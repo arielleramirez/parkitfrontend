@@ -37,7 +37,7 @@ class SearchBar extends Component {
     console.log(this.state.lng);
     return (
       <Fragment>
-        <Form onSubmit={this.handleSubmit}>
+        <Form onSubmit={this.handleSubmit} className="searchBar">
           <Form.Group>
             <input
               onChange={this.handleChange}

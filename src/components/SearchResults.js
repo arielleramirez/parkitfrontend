@@ -6,7 +6,7 @@ class SearchResults extends Component {
   render() {
     console.log(this.props);
     return (
-      <Card.Group itemsPerRow={4} padded="horizontally">
+      <Card.Group itemsPerRow={4} padded="horizontally" className="cardGroup">
         {this.props.locationResults.map((parkingspace, idx) => {
           return (
             <Result

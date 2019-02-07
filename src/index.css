@@ -366,7 +366,7 @@ h6 {
 }
 
 /*End  Filter Section */
-/* Search by Address Section */
+/* Search by Address Section & Current Location*/
 
 #white-box {
   height: 75vh;
@@ -390,13 +390,22 @@ h6 {
   padding-top: 1.5%;
   z-index: 1;
 }
-.map2 {
+
+/* End of Search by Address Section & Current Location*/
+
+.searchBar {
+  margin: 30px auto;
+  padding-right: 20%;
+  padding-left: 20%;
+}
+
+/* .map2 {
   height: 60vh;
   margin-right: 550px;
   z-index: 10;
-}
+} */
 
-.burgerMenu {
+/* .burgerMenu {
   padding-left: 1750px;
   padding-left: 1000;
   outline: none;
@@ -424,7 +433,7 @@ h6 {
   position: absolute;
   top: 0;
   left: 0;
-}
+} */
 
 /* aoisdjfaoisdjf;oaisjdf*/
 /* * {

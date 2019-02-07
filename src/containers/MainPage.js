@@ -6,7 +6,7 @@ import Background from "../img/background.jpg";
 
 const sectionStyle = {
   width: "100%",
-  height: "150vh",
+  height: "200vh",
   position: "absolute",
   backgroundPosition: "center",
   backgroundSize: "cover",

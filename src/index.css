@@ -2,40 +2,26 @@
   margin: 0;
   padding: 0;
 }
-body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
 
 /* Start of Homepage */
-
-.flex-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.flex-container > div {
-  width: 100%;
-  text-align: center;
-  line-height: 75px;
-  font-size: 30px;
-}
 
 .pageTop {
   background-image: url("./img/background1.jpg");
   background-position: center;
   background-size: cover;
   height: 100vh;
+}
+
+.homepage-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.homepage-container > div {
+  width: 100%;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
 }
 
 .title {
@@ -61,65 +47,88 @@ hr {
   font-size: 3.5vw;
 }
 
-.column1 {
-  margin-left: 15%;
+/* start of grid on homepage*/
+/* start of login/signin buttons */
+#logInButton {
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top: 0.75%;
+  padding-bottom: 0.75%;
+  position: absolute;
+  top: 5%;
+  left: 78%;
+}
+
+#signUpButton {
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top: 0.75%;
+  padding-bottom: 0.75%;
+  position: absolute;
+  top: 5%;
+  left: 88%;
+}
+
+h3 {
+  font-size: 1.3vw;
+}
+/* end of login/signin buttons */
+
+.grid {
   color: #863a58;
+  width: 60vw;
+  margin-left: 3%;
 }
 
 .searchImage {
-  margin-left: 200%;
+  margin: 0 auto;
+  width: 20%;
 }
 
 .searchTitle {
-  margin-left: 160%;
+  margin: 25px auto;
   font-size: 2.5vw;
 }
 
 .searchParagraph {
-  margin-left: 5%;
+  margin: 0 auto;
   font-size: 1.5vw;
-  width: 550%;
-}
-
-.column2 {
-  margin-left: 25%;
-  color: #863a58;
+  width: 60%;
 }
 
 .markerImage {
-  margin-left: 15%;
+  margin: 0 auto;
+  width: 20%;
 }
 
 .markerTitle {
-  margin-left: -35%;
+  margin: 25px auto;
   font-size: 2.5vw;
 }
 
 .markerParagraph {
-  margin-left: -200%;
+  margin: 0 auto;
   font-size: 1.5vw;
-  width: 550%;
-}
-
-.column3 {
-  margin-left: 25%;
-  color: #863a58;
+  width: 60%;
 }
 
 .checkmarkImage {
-  margin-left: -190%;
+  margin: 0 auto;
+  width: 20%;
 }
 
 .checkmarkTitle {
-  margin-left: -400%;
+  margin: 25px auto;
   font-size: 2.5vw;
 }
 
 .checkmarkParagraph {
-  margin-left: -400%;
+  margin: 0 auto;
   font-size: 1.5vw;
-  width: 550%;
+  width: 60%;
 }
+
+/* end of grid on homepage*/
 
 .subtitle2 {
   padding-top: 5%;
@@ -154,15 +163,15 @@ h6 {
 }
 
 .applebtn {
-  width: 20%;
+  width: 15%;
   float: right;
   padding-bottom: 20px;
 }
 
 .googlebtn {
-  width: 20%;
+  width: 15%;
   float: right;
-  margin-right: 30%;
+  margin-right: 35%;
   padding-bottom: 20px;
 }
 
@@ -175,7 +184,7 @@ h6 {
 
 #modalImage {
   margin-top: 3%;
-  margin-left: 41%;
+  margin-left: 42%;
   margin-right: 55%;
   width: 15%;
   height: 2%;
@@ -193,12 +202,6 @@ h6 {
   margin-left: 3%;
 }
 
-.modal {
-  margin-top: -100%;
-  max-width: 50%;
-  max-height: 40%;
-}
-
 #submit {
   margin-left: 23%;
   padding-left: 10vw;
@@ -209,7 +212,7 @@ h6 {
 
 /* end of modal styling */
 
-/* state of navbar styling */
+/* start of navbar styling */
 
 .banner {
   padding: 1.5vw;
@@ -218,7 +221,7 @@ h6 {
 
 .mainbar {
   background-color: #a5456a;
-  height: 7%;
+  height: 6%;
   outline: none;
   border: none;
 }
@@ -242,16 +245,18 @@ h6 {
   margin-left: 87%;
   text-align: center;
   line-height: 75px;
-  font-size: 30px;
+  font-size: 0.5vw;
   position: absolute;
   padding-bottom: 10px;
   top: 1%;
 }
+/* end of navbar styling */
 
-.search-sides {
+/* .search-sides {
   padding: 0 250px 0 250px;
 }
-
+*/
+/*
 .logoutBtn {
   padding: 20px;
 }
@@ -271,32 +276,9 @@ h6 {
 
 .centerContainer {
   text-align: center;
-}
+} */
 
-#logInButton {
-  padding-left: 3%;
-  padding-right: 3%;
-  padding-top: 0.75%;
-  padding-bottom: 0.75%;
-  position: absolute;
-  top: 5%;
-  left: 78%;
-}
-
-#signUpButton {
-  padding-left: 3%;
-  padding-right: 3%;
-  padding-top: 0.75%;
-  padding-bottom: 0.75%;
-  position: absolute;
-  top: 5%;
-  left: 88%;
-}
-
-h3 {
-  font-size: 1.3vw;
-}
-
+/*
 .main-page-search {
   margin-top: 50px;
 }
@@ -325,16 +307,7 @@ h3 {
   position: absolute;
   z-index: -1;
 }
-
-.login {
-  margin: 75px 420px 0 420px;
-  padding: 60px 15px;
-  border: solid #152249 2px;
-  border-radius: 10px;
-  background-color: #1c2c5b;
-  font-family: "Niramit", sans-serif;
-}
-
+*/
 .log {
   margin: 0 135px 20px 135px;
   color: white;
@@ -348,14 +321,52 @@ h3 {
   font-family: "Niramit", sans-serif;
   font-size: 45px;
 }
-.signup {
-  margin: 150px 500px 0 500px;
-  padding: 60px 15px;
-  border: solid #152249 2px;
-  border-radius: 10px;
-  background-color: #1c2c5b;
-  font-family: "Niramit", sans-serif;
+
+/*Start Filter Section */
+.Dropdown {
+  z-index: 2 !important;
+  padding-left: 20%;
+  padding-right: 20%;
+  margin: 50px auto;
+  height: 20px;
 }
+
+#card {
+  width: 25%;
+  height: 65vh;
+  margin: 2%;
+}
+
+#card-header {
+  font-size: 1.5vw;
+  line-height: 15px;
+}
+
+#card-description {
+  font-size: 1vw;
+  line-height: 10px;
+}
+
+#card-button {
+  width: 100%;
+}
+
+#cardGroup {
+  margin-left: 10%;
+}
+.maps-container {
+  z-index: 1 !important;
+}
+
+.map {
+  height: 28vh;
+  width: 85%;
+  border-radius: 24px;
+  margin: 10px auto;
+}
+
+/*End  Filter Section */
+/*
 .Form {
   color: #080e20;
 }
@@ -390,21 +401,15 @@ h2 {
   margin: 100px;
   width: 10px;
 }
-
+/*
 .navbar {
   height: 100px;
   width: 100%;
   color: #863a58;
 }
+*/
 
-.map {
-  height: 28vh;
-  width: 28vh;
-  margin-left: 3%;
-  margin-top: 10%;
-  border-radius: 24px;
-  margin-bottom: 20px;
-}
+/*
 
 .map1 {
   height: 60vh;
@@ -425,22 +430,21 @@ h2 {
   margin-left: 4%;
   z-index: -5;
 }
-
-/* .map2 {
+.map2 {
   height: 60vh;
   margin-right: 550px;
   z-index: 10;
-} */
+}
 
 .burgerMenu {
-  /* padding-left: 1750px; */
+  padding-left: 1750px;
   padding-left: 1000;
   outline: none;
   border: none;
 }
 
 .searchBar {
-  margin: 0 300px 0 300px;
+  text-align: center;
 }
 
 .filter {
@@ -452,27 +456,20 @@ h2 {
 .search {
   margin-top: 50px;
 }
-.Dropdown {
-  z-index: 99 !important;
-  padding: 0 200px;
-  margin: 80px auto;
-}
+*/
 
-.maps-container {
-  z-index: 99 !important;
-}
-
-.box,
-.map2 {
+/*
+.box {
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
-}
+} */
 
 /* aoisdjfaoisdjf;oaisjdf*/
-* {
+/* * {
   margin: 0;
   padding: 0;
 }
+*/

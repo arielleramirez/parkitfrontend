@@ -2,24 +2,19 @@ import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
-import Button from "@material-ui/core/Button";
 import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import SearchIcon from "@material-ui/icons/Search";
 import userAccountIcon from "../img/userAccount.png";
 import search from "../img/search.png";
 import exit from "../img/exit.png";
-import menu from "../img/menu6.png";
 import MapComponent from "./MapComponent";
 import Filter from "./Filter";
-import SearchBar from "./SearchBar";
 import CurrentLocation from "./CurrentLocation";
 import { Image } from "semantic-ui-react";
 import Search from "./Search";
-import Profile from "./Profile";
 
 const styles = {
   list: {
@@ -77,7 +72,7 @@ class TemporaryDrawer extends React.Component {
             "Search By Garage"
           ].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>
+              <ListItemIcon className="image">
                 {index % 2 === 0 && index % 3 === 0 ? (
                   <Image src={userAccountIcon} />
                 ) : (

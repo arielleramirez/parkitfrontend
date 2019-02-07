@@ -6,7 +6,7 @@ class ReservationsList extends Component {
   render() {
     console.log(this.props);
     return (
-      <Card.Group itemsPerRow={4} padded="horizontally" className="Grid1">
+      <Card.Group itemsPerRow={4} padded="horizontally">
         {this.props.userReservations.map((parkingspace, idx) => {
           return (
             <Reservation

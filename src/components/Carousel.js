@@ -5,15 +5,7 @@ import background2 from "../img/parking2.jpg";
 import background3 from "../img/parking3.jpg";
 import background4 from "../img/parking4.jpg";
 
-import { Card, Icon, Image } from "semantic-ui-react";
-
-const properties = {
-  duration: 5000,
-  transitionDuration: 500,
-  infinite: true,
-  indicators: true,
-  arrows: true
-};
+import { Card, Image } from "semantic-ui-react";
 
 const Carousel = () => {
   return (

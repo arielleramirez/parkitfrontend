@@ -18,7 +18,7 @@ class Profile extends Component {
   };
 
   handleReservation = event => {
-    fetch("http://localhost:3005/api/v1/reservations")
+    fetch("http://localhost:3001/api/v1/reservations")
       .then(r => r.json())
       .then(resData => {
         this.setState({
@@ -71,7 +71,6 @@ class Profile extends Component {
   };
 
   render() {
-    console.log(this.props.ReservationsList);
     return (
       <div>
         <NavBar
@@ -85,8 +84,8 @@ class Profile extends Component {
             paddingRight: 50,
             paddingTop: 20,
             paddingBottom: 20,
-            marginLeft: "45%",
-            marginTop: "5%"
+            marginLeft: 300,
+            marginTop: 20
           }}
           onClick={this.handleReservation}
         >

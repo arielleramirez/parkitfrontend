@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Card, Button } from "semantic-ui-react";
 import usermarker from "../img/u.png";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
@@ -21,7 +21,7 @@ class Result extends Component {
   handleClick = () => this.setState({ isReserved: !this.state.isReserved });
 
   onReserve = event => {
-    fetch(`http://localhost:3005/api/v1/reservations`, {
+    fetch(`http://localhost:3001/api/v1/reservations`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -51,17 +51,8 @@ class Result extends Component {
     const { isReserved } = this.state;
     console.log(this.props);
     return (
-      <div>
-        <Card
-          style={{
-            width: 300,
-            marginLeft: "80%",
-            marginRight: 25,
-            marginTop: "5%",
-            zIndex: 5,
-            border: 2
-          }}
-        >
+      <Fragment>
+        <Card id="card">
           <div className="maps-container">
             <Map className="map" center={this.props.position} zoom={16}>
               <TileLayer
@@ -73,9 +64,11 @@ class Result extends Component {
               </Marker>
             </Map>
           </div>
-          <Card.Content style={{ paddingLeft: 50 }}>
-            <Card.Header>{this.props.location_name}</Card.Header>
-            <Card.Description>
+          <Card.Content>
+            <Card.Header id="card-header">
+              {this.props.location_name}
+            </Card.Header>
+            <Card.Description id="card-description">
               {this.props.address}
               <br />
               {this.props.city}
@@ -83,24 +76,21 @@ class Result extends Component {
               {this.props.state}, {this.props.zip}
             </Card.Description>
           </Card.Content>
-
           <Card.Content extra>
             <Button
+              id="card-button"
               onClick={this.onReserve}
               isReserved={isReserved}
               style={{
                 backgroundColor: isReserved ? "#a5456a" : null,
-                color: isReserved ? "white" : null,
-                paddingLeft: 80,
-                paddingRight: 80,
-                marginLeft: 35
+                color: isReserved ? "white" : null
               }}
             >
               {isReserved ? "Reserved" : "Reserve"}
             </Button>
           </Card.Content>
         </Card>
-      </div>
+      </Fragment>
     );
   }
 }

@@ -1,14 +1,7 @@
 import React, { Component, Fragment } from "react";
 import usermarker from "../img/u.png";
 import parkingspacemarker from "../img/marker.png";
-import {
-  LayersControl,
-  BaseLayer,
-  Map,
-  TileLayer,
-  Marker,
-  Popup
-} from "react-leaflet";
+import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import { Card, Button } from "semantic-ui-react";
 
@@ -74,7 +67,7 @@ class CurrentLocation extends Component {
   }
 
   onReserve = cord => {
-    fetch(`http://localhost:3005/api/v1/reservations`, {
+    fetch(`http://localhost:3001/api/v1/reservations`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

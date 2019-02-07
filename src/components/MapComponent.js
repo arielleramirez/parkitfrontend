@@ -1,32 +1,13 @@
 import _ from "lodash";
-import faker from "faker";
 import React, { Component, Fragment } from "react";
-import { Search, Grid, Header, Segment } from "semantic-ui-react";
+import { Search } from "semantic-ui-react";
 import usermarker from "../img/u.png";
 import parkingspacemarker from "../img/marker.png";
-import Background from "../img/background.jpg";
 import { Card, Button } from "semantic-ui-react";
 
-import {
-  LayersControl,
-  BaseLayer,
-  Map,
-  TileLayer,
-  Marker,
-  Popup
-} from "react-leaflet";
+import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 
-const sectionStyle = {
-  width: "100%",
-  height: "92vh",
-  position: "absolute",
-  backgroundPosition: "center",
-  backgroundSize: "cover",
-  backgroundColor: "white",
-  backgroundImage: `url(${Background})`,
-  zIndex: -9
-};
 let myIcon1 = L.icon({
   iconUrl: usermarker,
   iconAnchor: [12.5, 41],
@@ -145,7 +126,7 @@ export default class MapComponent extends Component {
   // };
 
   onReserve = cord => {
-    fetch(`http://localhost:3005/api/v1/reservations`, {
+    fetch(`http://localhost:3001/api/v1/reservations`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -191,11 +172,9 @@ export default class MapComponent extends Component {
           icon={myIcon1}
         >
           <Popup>
-            <Card.Content style={{ paddingLeft: 20 }}>
-              <Card.Header style={{ fontSize: 25 }}>
-                {cord.location_name}
-              </Card.Header>
-              <Card.Description style={{ fontSize: 15, padding: 10 }}>
+            <Card.Content>
+              <Card.Header>{cord.location_name}</Card.Header>
+              <Card.Description>
                 {cord.address}
                 <br />
                 {cord.city}
@@ -258,26 +237,27 @@ export default class MapComponent extends Component {
 
     return (
       <Fragment>
-        <Search
-          style={{ marginLeft: "44%", zIndex: 99 }}
-          loading={isLoading}
-          onResultSelect={this.handleResultSelect}
-          onSearchChange={_.debounce(this.handleSearchChange, 500, {
-            leading: true
-          })}
-          results={results}
-          value={value}
-          {...this.props}
-        />
+        <div>
+          <Search
+            loading={isLoading}
+            onResultSelect={this.handleResultSelect}
+            onSearchChange={_.debounce(this.handleSearchChange, 500, {
+              leading: true
+            })}
+            results={results}
+            value={value}
+            {...this.props}
+          />
+        </div>
 
         <div
           className="box"
           style={{
-            height: "50%",
-            width: "65%",
+            width: "70%",
+            height: "65vh",
             backgroundColor: "white",
             marginLeft: "17%",
-            marginTop: "10%"
+            marginTop: "18%"
           }}
         >
           <div

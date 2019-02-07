@@ -1,19 +1,6 @@
 import React, { Component } from "react";
-import {
-  Button,
-  Header,
-  Image,
-  Modal,
-  Checkbox,
-  Form
-} from "semantic-ui-react";
-import PropTypes from "prop-types";
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
-import { connect } from "react-redux";
-import { createUser } from "../actions/SignUp";
-import MainPage from "../containers/MainPage";
+import { Button, Image, Modal, Form } from "semantic-ui-react";
 import { Redirect } from "react-router";
-import signMarker from "../img/signinMarker.png";
 
 class SignUp extends Component {
   state = {
@@ -40,7 +27,7 @@ class SignUp extends Component {
     event.preventDefault();
     console.log(this.state);
 
-    fetch("http://localhost:3005/api/v1/users", {
+    fetch("http://localhost:3001/api/v1/users", {
       method: "POST",
       headers: {
         "Content-Type": "Application/json"
@@ -62,7 +49,6 @@ class SignUp extends Component {
 
   render() {
     const { open, dimmer } = this.state;
-    const { classes } = this.props;
     const { active } = this.state;
     const { redirect } = this.state;
     if (redirect) {
@@ -81,7 +67,6 @@ class SignUp extends Component {
         </Button>
         <Modal
           size="tiny"
-          className="modal"
           dimmer={dimmer}
           open={open}
           onClose={this.close}

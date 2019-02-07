@@ -1,16 +1,8 @@
 import React, { Component } from "react";
-import {
-  Button,
-  Header,
-  Image,
-  Modal,
-  Checkbox,
-  Form
-} from "semantic-ui-react";
-import PropTypes from "prop-types";
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
+import { Button, Image, Modal, Form } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router";
+import { createUser } from "../actions/SignUp";
 
 class Login extends Component {
   state = { open: false, redirect: false, username: "", password: "" };
@@ -30,23 +22,25 @@ class Login extends Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    fetch("http://localhost:3005/api/v1/users")
+    fetch("http://localhost:3001/api/v1/users")
       .then(response => response.json())
       .then(allUsers => {
-        const user = allUsers.find(user => {
+        const isUser = allUsers.find(user => {
           return (
-            user.username == this.state.username &&
-            user.password == this.state.password
+            user.username === this.state.username &&
+            user.password === this.state.password
           );
         });
-        if (user) {
+        console.log(isUser);
+        if (isUser) {
           this.setState({ redirect: true });
         }
       });
   };
 
   render() {
-    const { classes } = this.props;
+    console.log(this.state.redirect);
+    console.log(this.state.username);
 
     const { open, dimmer } = this.state;
     const { active } = this.state;
@@ -106,8 +100,8 @@ class Login extends Component {
                 </Form.Field>
 
                 <Button
+                  onClick={this.handleSubmit}
                   type="submit"
-                  fullWidth
                   variant="contained"
                   id="submit"
                   active={active}
@@ -126,4 +120,7 @@ class Login extends Component {
     );
   }
 }
-export default Login;
+export default connect(
+  null,
+  { createUser }
+)(Login);

@@ -1,8 +1,6 @@
 import React, { Component, Fragment } from "react";
 import FilterByCity from "./FilterByCity";
 import FilterResults from "./FilterResults";
-import NavBar from "./NavBar";
-import { Card } from "semantic-ui-react";
 
 class Filter extends Component {
   state = {
@@ -14,7 +12,6 @@ class Filter extends Component {
     searchBar: "",
     haveUserLocation: false,
     zoom: 2,
-    searchBar: "",
     coords: [],
     stateFilter: [],
     reservedRes: [],
@@ -31,7 +28,7 @@ class Filter extends Component {
 
   handleReservation = id => {
     let reserveRes = this.state.searchResults.find(space => {
-      return space.location_id == id;
+      return space.location_id === id;
     });
     // console.log("hey", reserveRes);
     this.setState(

@@ -4,6 +4,7 @@ import parkingspacemarker from "../img/marker.png";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import { Card, Button } from "semantic-ui-react";
+import NavBar from "./NavBar";
 
 let myIcon1 = L.icon({
   iconUrl: usermarker,
@@ -145,6 +146,7 @@ class CurrentLocation extends Component {
 
     return (
       <Fragment>
+        <NavBar />
         <div id="white-box">
           <div className="map3">
             <Map className="map3" center={position} zoom={this.state.zoom}>

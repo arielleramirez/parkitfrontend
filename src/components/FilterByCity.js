@@ -1,5 +1,6 @@
-import React from "react";
+import { React, Fragment } from "react";
 import { Dropdown } from "semantic-ui-react";
+import NavBar from "./NavBar";
 
 const state = [
   { key: "IL", value: "IL", flag: "", text: "Illinois" },
@@ -20,23 +21,25 @@ const state = [
 ];
 
 const FilterByCity = props => {
+  console.log(props);
   const handleChange = (event, { value }) => {
-    console.log(event.target.value);
-    props.handleCityChange(value);
+    // props.handleCityChange(value);
   };
-
   return (
-    <div className="Dropdown">
-      <Dropdown
-        className="Dropdown"
-        onChange={handleChange}
-        placeholder="Select State"
-        search
-        fluid
-        selection
-        options={state}
-      />
-    </div>
+    <Fragment>
+      <NavBar />
+      <div className="Dropdown">
+        <Dropdown
+          className="Dropdown"
+          onChange={handleChange}
+          placeholder="Select State"
+          search
+          fluid
+          selection
+          options={state}
+        />
+      </div>
+    </Fragment>
   );
 };
 export default FilterByCity;

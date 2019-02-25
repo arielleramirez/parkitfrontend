@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Form } from "semantic-ui-react";
 import SearchResults from "./SearchResults";
+import NavBar from "./NavBar";
 
 class SearchBar extends Component {
   state = {
@@ -37,6 +38,7 @@ class SearchBar extends Component {
     console.log(this.state.lng);
     return (
       <Fragment>
+        <NavBar />
         <Form onSubmit={this.handleSubmit} className="searchBar">
           <Form.Group>
             <input

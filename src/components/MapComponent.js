@@ -4,6 +4,7 @@ import { Search } from "semantic-ui-react";
 import usermarker from "../img/u.png";
 import parkingspacemarker from "../img/marker.png";
 import { Card, Button } from "semantic-ui-react";
+import NavBar from "./NavBar";
 
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
@@ -161,7 +162,6 @@ export default class MapComponent extends Component {
         });
       });
     return this.state.coords.map(cord => {
-      console.log(cord);
       var newPosition = [cord.lat, cord.lng];
       const { isReserved } = this.state;
 
@@ -236,6 +236,7 @@ export default class MapComponent extends Component {
 
     return (
       <Fragment>
+        <NavBar />
         <div className="search" style={{ textAlign: "center" }}>
           <Search
             loading={isLoading}

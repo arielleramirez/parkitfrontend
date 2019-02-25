@@ -43,13 +43,13 @@ class TemporaryDrawer extends React.Component {
     ) {
       this.props.handleLogOut();
     } else if (e.target.innerText === "Filter By State") {
-      this.props.handleMainPage();
+      this.props.handleFilter();
     } else if (e.target.innerText === "Search Address") {
-      this.props.handleMainPage();
+      this.props.handleSearch();
     } else if (e.target.innerText === "Search By Garage") {
-      this.props.handleMainPage();
+      this.props.handleSearchBar();
     } else if (e.target.innerText === "Search Current Location") {
-      this.props.handleMainPage();
+      this.props.handleCurrentLocation();
     } else {
       this.props.handleProfile();
     }
@@ -58,7 +58,7 @@ class TemporaryDrawer extends React.Component {
     });
   };
   render() {
-    console.log(this.state.target.innerText);
+    console.log(this.props);
     const { classes } = this.props;
 
     const sideList = (

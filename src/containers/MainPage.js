@@ -46,8 +46,24 @@ class MainPage extends Component {
     this.props.history.push("/profile");
   };
 
-  handleMainPage = () => {
-    this.props.history.push("/mainpage");
+  // handleMainPage = () => {
+  //   this.props.history.push("/mainpage");
+  // };
+
+  handleFilter = () => {
+    this.props.history.push("/filter");
+  };
+
+  handleCurrentLocation = () => {
+    this.props.history.push("/currentLocation");
+  };
+
+  handleSearch = () => {
+    this.props.history.push("/address");
+  };
+
+  handleSearchBar = () => {
+    this.props.history.push("/parkinggarage");
   };
 
   render() {
@@ -59,6 +75,10 @@ class MainPage extends Component {
             handleLogOut={this.handleLogOut}
             handleProfile={this.handleProfile}
             handleMainPage={this.handleMainPage}
+            handleFilter={this.handleFilter}
+            handleCurrentLocation={this.handleCurrentLocation}
+            handleSearch={this.handleSearch}
+            handleSearchBar={this.handleSearchBar}
           />
         </div>
       </React.Fragment>

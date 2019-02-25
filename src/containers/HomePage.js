@@ -64,30 +64,3 @@ class HomePage extends Component {
 }
 
 export default HomePage;
-
-// <Grid>
-//   <Grid.Column className="column1">
-//     <span>
-//       <Image className="searchImage" src={search} />
-//     </span>
-//     <h2 className="searchTitle">Search</h2>
-//     <p className="searchParagraph">
-//       Convienent search options right at your finger tips.
-//     </p>
-//   </Grid.Column>
-//   <Grid.Column className="column2">
-//     <Image className="markerImage" src={marker} />
-//     <h2 className="markerTitle">Locate</h2>
-//     <p className="markerParagraph">
-//       Select the option that best suits you.
-//     </p>
-//   </Grid.Column>
-//   <Grid.Column className="column3">
-//     <Image className="checkmarkImage" src={checkmark} />
-//
-//     <h2 className="checkmarkTitle">Reserve</h2>
-//     <p className="checkmarkParagraph">
-//       With a click of a button, reserve your space now!
-//     </p>
-//   </Grid.Column>
-// </Grid>

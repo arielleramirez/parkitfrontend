@@ -12,3 +12,4 @@ class Search extends Component {
 }
 
 export default Search;
+// search bar works
